@@ -24,12 +24,12 @@
       <script src="js/respond.min.js"></script>
     <![endif]-->         
     </head>     
-    <body id="root" data-spy="scroll" data-target="nav">
-      <div id="bodyWrapper">
+    <body data-spy="scroll" data-target="nav">
+      <div id="app">
         <header id="promo-3" class="content-block promo-3 min-height-600px bg-deepocean">
             <div class="container text-center">
                 <h1>Market Like a Boss!</h1>
-                <h2 id="subHeader" class="pad30"><text-element></text-element></h2>
+                <h2 id="subHeader" class="pad30"><text-element :level="ethicalLevel"></text-element></h2>
             </div>
             <!-- /.container -->
         </header>
@@ -37,24 +37,9 @@
           <section id="content-1-9" class="content-1-9 content-block">
               <div class="container">
                   <div class="row">
-                      <div class="col-md-6 col-sm-6 col-xs-12 pad15">
+                      <div class="col-md-6 col-sm-6 col-xs-12 pad15" v-for="n in 4">
                           <div class="col-md-12 col-xs-10">
-                              <p>Retro chillwave YOLO four loko photo booth. Brooklyn kale chips, seitan hella 3 wolf moon slow-carb paleo.</p>
-                          </div>
-                      </div>
-                      <div class="col-md-6 col-sm-6 col-xs-12 pad15">
-                          <div class="col-md-12 col-xs-10">
-                              <p>Retro chillwave YOLO four loko photo booth. Brooklyn kale chips, seitan hella 3 wolf moon slow-carb paleo.</p>
-                          </div>
-                      </div>
-                      <div class="col-md-6 col-sm-6 col-xs-12 pad25">
-                          <div class="col-md-12 col-xs-10">
-                              <p>Retro chillwave YOLO four loko photo booth. Brooklyn kale chips, seitan hella 3 wolf moon slow-carb paleo.</p>
-                          </div>
-                      </div>
-                      <div class="col-md-6 col-sm-6 col-xs-12 pad25">
-                          <div class="col-md-12 col-xs-10">
-                              <p>Retro chillwave YOLO four loko photo booth. Brooklyn kale chips, seitan hella 3 wolf moon slow-carb paleo.</p>
+                              <p><text-element :level="ethicalLevel"></text-element></p>
                           </div>
                       </div>
                   </div>

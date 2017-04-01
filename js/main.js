@@ -32,13 +32,11 @@ Default.choices[Util.UNETHICAL] = ["Unethical", "Unethical1"];
 
 Default.ethicalLevel = Util.SOMEWHAT_ETHICAL;
 
-/* VUE object to allow communication */
-var bus = new Vue();
-
 /* Create custom VUE componenets first */
+var bus = new Vue({}) // This empty Vue model will serve as our event bus.
+
 Vue.component('text-element', {
   template: '<span> {{ msg }} </span>',
-//   props: ['level', 'choices'],
   props: {
       level: {
         type: Number,
@@ -51,24 +49,30 @@ Vue.component('text-element', {
         }
       }
   },
+  data: function() {
+    return {
+      ethicalLevel: this.level
+    };
+  },
   computed: {
     msg: function() {
-      return Util.chooseElement(this.level, this.choices);
+      return Util.chooseElement(this.ethicalLevel, this.choices);
     }
-  }
+  },
+  mounted: function() {
+      var self = this;
+// Listen for outside changes to the ethical level 
+      bus.$on('set-ethical-level', function (newLevel) {
+        self.ethicalLevel = newLevel;
+      });
+    }
 });
 
 /* Create VUE instances for various parts of the page */
-var rootVue = new Vue({
-  el: '#bodyWrapper',
+var app = new Vue({
+  el: '#app',
   data: {
-     ethicalLevel: Default.ethicalLevel
-  },
-  created: function() {
-// in deal with setting the ethical level 
-      bus.$on('set-ethical-level', function (newLevel) {
-      this.ethicalLevel = newLevel;
-    });
+    ethicalLevel: Default.ethicalLevel
   }
 });
 
