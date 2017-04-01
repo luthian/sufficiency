@@ -11,7 +11,8 @@
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
         <link href="css/font-awesome.min.css" rel="stylesheet">
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700" rel="stylesheet">
-        <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,700,300italic,400italic,700italic">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:300,400,700,300italic,400italic,700italic">
         <!-- Style Library -->         
         <link href="css/style-library-1.css" rel="stylesheet">
         <link href="css/plugins.css" rel="stylesheet">
@@ -22,102 +23,103 @@
       <script src="js/html5shiv.js"></script>
       <script src="js/respond.min.js"></script>
     <![endif]-->         
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto">
     </head>     
-    <body data-spy="scroll" data-target="nav">
-        <section id="promo-3" class="content-block promo-3 min-height-600px bg-deepocean">
+    <body id="root" data-spy="scroll" data-target="nav">
+      <div id="bodyWrapper">
+        <header id="promo-3" class="content-block promo-3 min-height-600px bg-deepocean">
             <div class="container text-center">
                 <h1>Market Like a Boss!</h1>
-                <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h2>
+                <h2 id="subHeader" class="pad30"><text-element></text-element></h2>
             </div>
             <!-- /.container -->
-        </section>
-        <section id="content-1-9" class="content-1-9 content-block">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-sm-12 col-xs-12 pad25">
-                        <div class="col-xs-10">
-                            <p>Retro chillwave YOLO four loko photo booth. Brooklyn kale chips, seitan hella 3 wolf moon slow-carb paleo.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-12 col-xs-12 pad25">
-                        <div class="col-xs-10">
-                            <p>Retro chillwave YOLO four loko photo booth. Brooklyn kale chips, seitan hella 3 wolf moon slow-carb paleo.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-12 col-xs-12 pad25">
-                        <div class="col-xs-10">
-                            <p>Retro chillwave YOLO four loko photo booth. Brooklyn kale chips, seitan hella 3 wolf moon slow-carb paleo.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-12 col-xs-12 pad25">
-                        <div class="col-xs-10">
-                            <p>Retro chillwave YOLO four loko photo booth. Brooklyn kale chips, seitan hella 3 wolf moon slow-carb paleo.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
-            </div>
-            <hr />
-            <!-- /.container -->
-        </section>
-        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-        <section id="content-2-2" class="content-block content-2-2 bg-pomegranate">
-            <div class="container">
-                <!-- Start Row -->
-                <div class="row">
-                    <div class="col-sm-4 col-xs-12 text-center">
-                        <div class="icon-outline">
-                            <span class="fa fa-send"></span>
-                        </div>
-                        <h3>Make your ideas happen</h3>
-                        <p>Etsy ethnic actually hella Odd Future meggings shabby chic leggings salvia master cleanse stumptown.</p>
-                    </div>
-                    <div class="col-sm-4 col-xs-12 text-center">
-                        <div class="icon-outline">
-                            <span class="fa fa-star"></span>
-                        </div>
-                        <h3>Hands-on customer support</h3>
-                        <p>Etsy ethnic actually hella Odd Future meggings shabby chic leggings salvia master cleanse stumptown.</p>
-                    </div>
-                    <div class="col-sm-4 col-xs-12 text-center">
-                        <div class="icon-outline">
-                            <span class="fa fa-tags"></span>
-                        </div>
-                        <h3>Hand crafted, quality code</h3>
-                        <p>Etsy ethnic actually hella Odd Future meggings shabby chic leggings salvia master cleanse stumptown.</p>
-                    </div>
-                </div>
-                <!--// END Row -->
-            </div>
-        </section>
-        <section id="content-1-7" class="content-1-7 content-block">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-2 col-sm-4">
-                        <img alt="Client Logo" src="images/partner-logos/logo-bootstrap.png">
-                    </div>
-                    <div class="col-md-2 col-sm-4">
-                        <img alt="Client Logo" src="images/partner-logos/logo-less.png">
-                    </div>
-                    <div class="col-md-2 col-sm-4">
-                        <img alt="Client Logo" src="images/partner-logos/logo-sass.png">
-                    </div>
-                    <div class="col-md-2 col-sm-4">
-                        <img alt="Client Logo" src="images/partner-logos/logo-yeoman.png">
-                    </div>
-                    <div class="col-md-2 col-sm-4">
-                        <img alt="Client Logo" src="images/partner-logos/logo-bower.png">
-                    </div>
-                    <div class="col-md-2 col-sm-4">
-                        <img alt="Client Logo" src="images/partner-logos/logo-jquery.png">
-                    </div>
-                </div>
-                <!--end of row-->
-            </div>
-            <!-- /.container -->
-        </section>
-        <section class="content-block-nopad bg-deepocean footer-wrap-1-3">
+        </header>
+        <main>
+          <section id="content-1-9" class="content-1-9 content-block">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-md-6 col-sm-6 col-xs-12 pad15">
+                          <div class="col-md-12 col-xs-10">
+                              <p>Retro chillwave YOLO four loko photo booth. Brooklyn kale chips, seitan hella 3 wolf moon slow-carb paleo.</p>
+                          </div>
+                      </div>
+                      <div class="col-md-6 col-sm-6 col-xs-12 pad15">
+                          <div class="col-md-12 col-xs-10">
+                              <p>Retro chillwave YOLO four loko photo booth. Brooklyn kale chips, seitan hella 3 wolf moon slow-carb paleo.</p>
+                          </div>
+                      </div>
+                      <div class="col-md-6 col-sm-6 col-xs-12 pad25">
+                          <div class="col-md-12 col-xs-10">
+                              <p>Retro chillwave YOLO four loko photo booth. Brooklyn kale chips, seitan hella 3 wolf moon slow-carb paleo.</p>
+                          </div>
+                      </div>
+                      <div class="col-md-6 col-sm-6 col-xs-12 pad25">
+                          <div class="col-md-12 col-xs-10">
+                              <p>Retro chillwave YOLO four loko photo booth. Brooklyn kale chips, seitan hella 3 wolf moon slow-carb paleo.</p>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- /.row -->
+              </div>
+              <hr />
+              <!-- /.container -->
+          </section>
+          <section id="content-2-2" class="content-block content-2-2 bg-pomegranate">
+              <div class="container">
+                  <!-- Start Row -->
+                  <div class="row">
+                      <div class="col-sm-4 col-xs-12 text-center">
+                          <div class="icon-outline">
+                              <span class="fa fa-send"></span>
+                          </div>
+                          <h3>Make your ideas happen</h3>
+                          <p>Etsy ethnic actually hella Odd Future meggings shabby chic leggings salvia master cleanse stumptown.</p>
+                      </div>
+                      <div class="col-sm-4 col-xs-12 text-center">
+                          <div class="icon-outline">
+                              <span class="fa fa-star"></span>
+                          </div>
+                          <h3>Hands-on customer support</h3>
+                          <p>Etsy ethnic actually hella Odd Future meggings shabby chic leggings salvia master cleanse stumptown.</p>
+                      </div>
+                      <div class="col-sm-4 col-xs-12 text-center">
+                          <div class="icon-outline">
+                              <span class="fa fa-tags"></span>
+                          </div>
+                          <h3>Hand crafted, quality code</h3>
+                          <p>Etsy ethnic actually hella Odd Future meggings shabby chic leggings salvia master cleanse stumptown.</p>
+                      </div>
+                  </div>
+                  <!--// END Row -->
+              </div>
+          </section>
+          <section id="content-1-7" class="content-1-7 content-block">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-md-2 col-sm-4">
+                          <img alt="Client Logo" src="images/partner-logos/logo-bootstrap.png">
+                      </div>
+                      <div class="col-md-2 col-sm-4">
+                          <img alt="Client Logo" src="images/partner-logos/logo-less.png">
+                      </div>
+                      <div class="col-md-2 col-sm-4">
+                          <img alt="Client Logo" src="images/partner-logos/logo-sass.png">
+                      </div>
+                      <div class="col-md-2 col-sm-4">
+                          <img alt="Client Logo" src="images/partner-logos/logo-yeoman.png">
+                      </div>
+                      <div class="col-md-2 col-sm-4">
+                          <img alt="Client Logo" src="images/partner-logos/logo-bower.png">
+                      </div>
+                      <div class="col-md-2 col-sm-4">
+                          <img alt="Client Logo" src="images/partner-logos/logo-jquery.png">
+                      </div>
+                  </div>
+                  <!--end of row-->
+              </div>
+              <!-- /.container -->
+          </section>
+        </main>
+        <footer class="content-block-nopad bg-deepocean footer-wrap-1-3">
             <div class="container footer-1-3">
                 <div class="col-md-4 pull-left">
                     <img src="images/brand/pgblocks-logo-white.png" class="brand-img img-responsive">
@@ -155,10 +157,13 @@
                 </div>
             </div>
             <!-- /.container -->
-        </section>         
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>         
-        <script type="text/javascript" src="js/plugins.js"></script>
-        <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
-        <script type="text/javascript" src="js/bskit-scripts.js"></script>         
+        </footer>         
+      </div>
+      <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+      <script type="text/javascript" src="js/bootstrap.min.js"></script>         
+      <script type="text/javascript" src="js/plugins.js"></script>
+      <script type="text/javascript" src="js/bskit-scripts.js"></script>         
+      <script type="text/javascript" src="bower_components/vue/dist/vue.js"></script>         
+      <script type="text/javascript" src="js/main.min.js"></script>         
     </body>     
 </html>

@@ -2,3 +2,14 @@
 body {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
 }
+.promo-3 h1 {
+  font-size: 60px;
+  color: #ffffff;
+  font-family: "Raleway", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+.promo-3 h2 {
+  font-weight: normal;
+  font-size: 2em;
+}
+/*# sourceMappingURL=custom.css.map */
