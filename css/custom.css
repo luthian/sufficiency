@@ -19,24 +19,30 @@ a:hover {
   font-weight: normal;
   font-size: 2em;
 }
-.controlsWrapper.open {
+.controlsTemplateWrapper.open {
   border: 3px solid #aaa;
   padding: 5px;
   border-radius: 10px;
   border-style: dashed;
+  display: inline-block;
   /* Ethical classes */
 }
-.controlsWrapper.open.ethical {
+.controlsTemplateWrapper.open.ethical {
   border-color: green;
 }
-.controlsWrapper.open.somewhatEthical {
+.controlsTemplateWrapper.open.somewhatEthical {
   border-color: gold;
 }
-.controlsWrapper.open.somewhatUnethical {
+.controlsTemplateWrapper.open.somewhatUnethical {
   border-color: gold;
 }
-.controlsWrapper.open.unethical {
+.controlsTemplateWrapper.open.unethical {
   border-color: red;
+}
+.controlsTemplateWrapper .controlsWrapper {
+  color: #222;
+  padding: 10px 5px 5px 5px;
+  background-color: rgba(255, 255, 255, 0.4);
 }
 .eyeControl {
   position: absolute;

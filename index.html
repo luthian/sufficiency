@@ -34,8 +34,8 @@
           <div class="container text-center">
                 <h1>Market Like a Boss!</h1>
                 <h2 id="subHeader" class="pad30">
-                  <ethical-controls :open="controlsOpen" :level="ethicalLevel">
-                    <text-element :level="ethicalLevel"></text-element>
+                  <ethical-controls :show="typesToShow" :open="controlsOpen" :level="ethicalLevel">
+                    <text-element :type="4" :level="ethicalLevel"></text-element>
                   </ethical-controls>
                 </h2>
             </div>
@@ -45,9 +45,11 @@
           <section id="content-1-9" class="content-1-9 content-block">
               <div class="container">
                   <div class="row">
-                      <div class="col-md-6 col-sm-6 col-xs-12 pad15" v-for="i in 4">
+                      <div class="col-md-6 col-sm-6 col-xs-12 pad15" v-for="n in 4">
                           <div class="col-md-12 col-xs-10">
-                              <p><text-element :level="ethicalLevel"></text-element></p>
+                            <ethical-controls :show="typesToShow" :type="n+1" :open="controlsOpen" :level="ethicalLevel">
+                              <text-element :type="n+1" :level="ethicalLevel"></text-element>
+                            </ethical-controls>
                           </div>
                       </div>
                   </div>
@@ -151,11 +153,24 @@
             <!-- /.container -->
         </footer>         
       </div>
+      <script type="text/x-template" id="control-template">
+        <div :class="classObject">
+          <slot>
+            <p>No child template specified!</p>
+          </slot>
+          <div v-show="open" class="controlsWrapper">
+            <select v-model="currentLevel">
+              <option disabled>Select an ethical level '{{this.currentLevel}}'</option>
+              <option v-for="option in options" :value.number="option.value">{{option.text}}</option>
+            </select>
+          </div>
+        </div>
+     </script>    
       <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
       <script type="text/javascript" src="js/bootstrap.min.js"></script>         
       <script type="text/javascript" src="js/plugins.js"></script>
       <script type="text/javascript" src="js/bskit-scripts.js"></script>         
       <script type="text/javascript" src="bower_components/vue/dist/vue.js"></script>         
-      <script type="text/javascript" src="js/main.min.js"></script>         
+      <script type="text/javascript" src="js/main.min.js"></script>
     </body>     
 </html>
