@@ -75,7 +75,7 @@ Default.choices[Util.SCARCITY][Util.SOMEWHAT_ETHICAL] = ["Somewhat Ethical Scarc
 Default.choices[Util.SCARCITY][Util.SOMEWHAT_UNETHICAL] = ["Somewhat UnEthical Scarcity", "Somewhat UnEthical Scarcity1", "Somewhat UnEthical Scarcity2"];
 Default.choices[Util.SCARCITY][Util.UNETHICAL] = ["UnEthical Scarcity", "UnEthical Scarcity1"];
 
-Default.ethicalLevel = Util.SOMEWHAT_ETHICAL;
+Default.ethicalLevel = Util.ETHICAL;
 Default.persuasiveType = Util.AUTHORITY;
 
 /* Create custom VUE componenets first */
@@ -136,11 +136,6 @@ Vue.component('ethical-controls', {
       }
       return classes;
     }
-  },
-  methods: {
-    changeEthicalLevel: function (newLevel) {
-      this.ethicalLevel = newLevel;
-    }    
   },
   created: function() {
     var self = this;

@@ -35,7 +35,9 @@
                 <h1>Market Like a Boss!</h1>
                 <h2 id="subHeader" class="pad30">
                   <ethical-controls :show="typesToShow" :open="controlsOpen" :level="ethicalLevel">
-                    <text-element :type="4" :level="ethicalLevel"></text-element>
+                    <template scope="{theLevel}">
+                      <text-element :type="4" :level="theLevel"></text-element>
+                    </template>
                   </ethical-controls>
                 </h2>
             </div>
@@ -47,8 +49,10 @@
                   <div class="row">
                       <div class="col-md-6 col-sm-6 col-xs-12 pad15" v-for="n in 4">
                           <div class="col-md-12 col-xs-10">
-                            <ethical-controls :show="typesToShow" :type="n+1" :open="controlsOpen" :level="ethicalLevel">
-                              <text-element :type="n+1" :level="ethicalLevel"></text-element>
+                            <ethical-controls :show="typesToShow" :type="n+1" :open="controlsOpen" :level="n-1">
+                              <template scope="{theLevel}">
+                                <text-element :type="n+1" :level="theLevel"></text-element>
+                              </template>
                             </ethical-controls>
                           </div>
                       </div>
@@ -155,12 +159,12 @@
       </div>
       <script type="text/x-template" id="control-template">
         <div :class="classObject">
-          <slot>
+          <slot :theLevel="currentLevel">
             <p>No child template specified!</p>
           </slot>
           <div v-show="open" class="controlsWrapper">
             <select v-model="currentLevel">
-              <option disabled>Select an ethical level '{{this.currentLevel}}'</option>
+              <option disabled>Select an ethical level</option>
               <option v-for="option in options" :value.number="option.value">{{option.text}}</option>
             </select>
           </div>
