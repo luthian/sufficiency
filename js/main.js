@@ -35,6 +35,62 @@ Default.ethicalLevel = Util.SOMEWHAT_ETHICAL;
 /* Create custom VUE componenets first */
 var bus = new Vue({}) // This empty Vue model will serve as our event bus.
 
+/* Wrapper component that shows the local ethical level controls */
+
+Vue.component('ethical-controls', {
+  template: '
+  <span :class="classObject">
+    <slot>
+    <p>No child template specified!</p>
+    </slot>
+  </span>
+',
+  props: {
+      level: {
+        type: Number,
+        default: Default.ethicalLevel
+      },
+      open: {
+        type: Boolean,
+        default: false
+      }
+  },
+  data: function() {
+    return {
+      newEthicalLevel: this.level,
+      userDisagrees: false
+    };
+  },
+  computed: {
+    classObject: function() {
+      var classes = {controlsWrapper: true};
+      if (this.open) {
+        classes.open = true;
+        switch (this.level) {
+          case Util.ETHICAL:
+             classes.ethical = true;
+             break;
+          case Util.SOMEWHAT_ETHICAL:
+             classes.somewhatEthical = true;
+             break;
+          case Util.SOMEWHAT_UNETHICAL:
+             classes.somewhatUnethical = true;
+             break;
+          case Util.UNETHICAL:
+          default:
+             classes.unethical = true;
+             break;
+        }
+      }
+      return classes;
+    }
+  },
+  created: function() {
+    var self = this;
+  }
+});
+
+/* Text persuasive element component */
 Vue.component('text-element', {
   template: '<span> {{ msg }} </span>',
   props: {
@@ -59,20 +115,33 @@ Vue.component('text-element', {
       return Util.chooseElement(this.ethicalLevel, this.choices);
     }
   },
-  mounted: function() {
-      var self = this;
+  created: function() {
+    var self = this;
 // Listen for outside changes to the ethical level 
-      bus.$on('set-ethical-level', function (newLevel) {
-        self.ethicalLevel = newLevel;
-      });
-    }
+    bus.$on('set-ethical-level', function (newLevel) {
+      self.ethicalLevel = newLevel;
+    });
+  }
 });
 
 /* Create VUE instances for various parts of the page */
 var app = new Vue({
   el: '#app',
   data: {
-    ethicalLevel: Default.ethicalLevel
+    ethicalLevel: Default.ethicalLevel,
+    controlsOpen: false
+  },
+  methods: {
+    toggleControls: function () {
+      this.controlsOpen = !this.controlsOpen;
+    }
+  },
+  created: function() {
+    var self = this;
+// Listen for outside changes to the ethical level 
+    bus.$on('set-controls-visibility', function (isOpen) {
+      self.controlsOpen = isOpen;
+    });
   }
 });
 

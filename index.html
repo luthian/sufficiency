@@ -27,9 +27,17 @@
     <body data-spy="scroll" data-target="nav">
       <div id="app">
         <header id="promo-3" class="content-block promo-3 min-height-600px bg-deepocean">
-            <div class="container text-center">
+          <transition name="fade">
+            <a href="#" v-if="!controlsOpen" @click.prevent="toggleControls" class="eyeControl"><i class="fa fa-2x fa-eye"></i></a>
+            <a href="#" v-if="controlsOpen" @click.prevent="toggleControls" class="eyeControl"><i class="fa fa-2x fa-eye-slash"></i></a>
+          </transition>
+          <div class="container text-center">
                 <h1>Market Like a Boss!</h1>
-                <h2 id="subHeader" class="pad30"><text-element :level="ethicalLevel"></text-element></h2>
+                <h2 id="subHeader" class="pad30">
+                  <ethical-controls :open="controlsOpen" :level="ethicalLevel">
+                    <text-element :level="ethicalLevel"></text-element>
+                  </ethical-controls>
+                </h2>
             </div>
             <!-- /.container -->
         </header>
@@ -37,7 +45,7 @@
           <section id="content-1-9" class="content-1-9 content-block">
               <div class="container">
                   <div class="row">
-                      <div class="col-md-6 col-sm-6 col-xs-12 pad15" v-for="n in 4">
+                      <div class="col-md-6 col-sm-6 col-xs-12 pad15" v-for="i in 4">
                           <div class="col-md-12 col-xs-10">
                               <p><text-element :level="ethicalLevel"></text-element></p>
                           </div>
@@ -45,7 +53,6 @@
                   </div>
                   <!-- /.row -->
               </div>
-              <hr />
               <!-- /.container -->
           </section>
           <section id="content-2-2" class="content-block content-2-2 bg-pomegranate">

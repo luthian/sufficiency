@@ -1,6 +1,25 @@
+/* Variables */
+
+@ethical-color: green;
+@somewhat-ethical-color: gold;
+@somewhat-unethical-color: goldenrod;
+@unethical-color: red;
+
+@border-color: #aaa;
+@control-color: #fff;
+@link-color: initial;
+
 /* Put your custom styles here */
 body {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: @link-color;
+}
+
+a:hover {
+  color: @link-color;
 }
 
 .promo-3 {
@@ -18,3 +37,47 @@ body {
   }
 }
 
+.controlsWrapper {
+  &.open {
+    border: 3px solid @border-color;
+    padding: 5px;
+    border-radius: 10px;
+    border-style: dashed;
+
+    /* Ethical classes */
+    
+    &.ethical {
+      border-color: @ethical-color;
+    }
+    &.somewhatEthical {
+      border-color: @somewhat-ethical-color;
+    }
+    &.somewhatUnethical {
+      border-color: @somewhat-ethical-color;
+    }
+    &.unethical {
+      border-color: @unethical-color;
+    }
+  }
+}
+
+.eyeControl {
+  position: absolute;
+  z-index: 105;
+  top: -20px;
+  right: 20px;
+  color: @control-color;
+}
+
+  a.eyeControl:hover {
+    color: @control-color;
+  }
+
+
+/* Fade values for Vue transitions */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .3s
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+  opacity: 0
+}

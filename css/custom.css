@@ -1,6 +1,13 @@
+/* Variables */
 /* Put your custom styles here */
 body {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
+}
+a {
+  color: initial;
+}
+a:hover {
+  color: initial;
 }
 .promo-3 h1 {
   font-size: 60px;
@@ -11,5 +18,44 @@ body {
 .promo-3 h2 {
   font-weight: normal;
   font-size: 2em;
+}
+.controlsWrapper.open {
+  border: 3px solid #aaa;
+  padding: 5px;
+  border-radius: 10px;
+  border-style: dashed;
+  /* Ethical classes */
+}
+.controlsWrapper.open.ethical {
+  border-color: green;
+}
+.controlsWrapper.open.somewhatEthical {
+  border-color: gold;
+}
+.controlsWrapper.open.somewhatUnethical {
+  border-color: gold;
+}
+.controlsWrapper.open.unethical {
+  border-color: red;
+}
+.eyeControl {
+  position: absolute;
+  z-index: 105;
+  top: -20px;
+  right: 20px;
+  color: #fff;
+}
+a.eyeControl:hover {
+  color: #fff;
+}
+/* Fade values for Vue transitions */
+.fade-enter-active,
+.fade-leave-active {
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 /*# sourceMappingURL=custom.css.map */
