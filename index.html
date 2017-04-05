@@ -26,32 +26,36 @@
     </head>     
     <body data-spy="scroll" data-target="nav">
       <div id="app">
-        <header id="promo-3" class="content-block promo-3 min-height-600px bg-deepocean">
+        <header>
           <transition name="fade">
-            <a href="#" v-if="!controlsOpen" @click.prevent="toggleControls" class="eyeControl"><i class="fa fa-2x fa-eye"></i></a>
-            <a href="#" v-if="controlsOpen" @click.prevent="toggleControls" class="eyeControl"><i class="fa fa-2x fa-eye-slash"></i></a>
+            <a href="#" v-if="!controlsOpen" @click.prevent="controlsOpen = !controlsOpen" class="eyeControl" key="closed"><i class="fa fa-2x fa-eye"></i></a>
+            <a href="#" v-else class="eyeControl" @click.prevent="controlsOpen = !controlsOpen" key="opened"><i class="fa fa-2x fa-eye-slash"></i></a>
           </transition>
-          <div class="container text-center">
-                <h1>Market Like a Boss!</h1>
-                <h2 id="subHeader" class="pad30">
-                  <ethical-controls :show="typesToShow" :open="controlsOpen" :level="ethicalLevel">
-                    <template scope="{theLevel}">
-                      <text-element :type="4" :level="theLevel"></text-element>
-                    </template>
-                  </ethical-controls>
-                </h2>
+            <a href="#" v-if="!sidebarOpen" @click.prevent="toggleControls" class="gearControl" key="sidebar-closed"><i class="fa fa-2x fa-cog"></i></a>
+            <a href="#" v-else @click.prevent="toggleControls" class="gearControl" key="sidebar-opened"><i class="fa fa-2x fa-times"></i></a>
+          <div id="promo-3" class="content-block promo-3 min-height-600px bg-deepocean headerWrapper">
+            <div class="container text-center">
+              <h1>Market Like a Boss!</h1>
+              <h2 id="subHeader" class="pad30">
+                <ethical-controls :show="typesToShow" :open="controlsOpen" :level="ethicalLevel">
+                  <template scope="{theData}">
+                    <text-element :type="4" :level="theData.currentLevel"></text-element>
+                  </template>
+                </ethical-controls>
+              </h2>
             </div>
-            <!-- /.container -->
+              <!-- /.container -->
+          </div>
         </header>
         <main>
           <section id="content-1-9" class="content-1-9 content-block">
               <div class="container">
-                  <div class="row">
+                  <div class="row flexWithWrap">
                       <div class="col-md-6 col-sm-6 col-xs-12 pad15" v-for="n in 4">
                           <div class="col-md-12 col-xs-10">
                             <ethical-controls :show="typesToShow" :type="n+1" :open="controlsOpen" :level="n-1">
-                              <template scope="{theLevel}">
-                                <text-element :type="n+1" :level="theLevel"></text-element>
+                              <template scope="{theData}">
+                                <text-element :type="theData.currentType" :level="theData.currentLevel"></text-element>
                               </template>
                             </ethical-controls>
                           </div>
@@ -155,22 +159,59 @@
                 </div>
             </div>
             <!-- /.container -->
-        </footer>         
+        </footer>
+        <aside id="controlMenu" class="sidebar">
+          <h3>Ethics and Persuasion</h3>
+          <section class="instructions">
+            <p>The <i class="fa fa-2x fa-eye"></i> control allows you to highlight, and adjust the ethical level of, each element of persuasion shown. Should you disagree with the ethical level shown for any specific persuasive element, check <em>I disagree with this rating</em> and select the ethical level you believe that persuasive element is demonstrating. To hide the ethical controls, simply click the <i class="fa fa-2x fa-eye-slash"></i> control.</p>
+            <p> Use the controls below to select which types of persuasion are shown when the <i class="fa fa-2x fa-eye"></i> control is used. Simply select which types you would like highlighted. You can also reset the ethical levels of all types of persuasion shown by using the master reset control. To close this sidebar, click the <i class="fa fa-2x fa-times"></i> control.</p>
+          </section>
+          <section class="typeControls">
+            <h4>Types of Persuasion to highlight</h4>
+            <div class="form-group">
+              <div class="checkbox" v-for="(type, i) in persuasiveTypes">
+                <label>
+                  <input type="checkbox" :checked="typesToShow[type.value]" @change="toggleTypeToShow(type.value)" :value.number="type.value">
+                  {{ type.text }}
+                </label>
+              </div>
+            </div>
+          </section>
+        </aside>
       </div>
       <script type="text/x-template" id="control-template">
         <div :class="classObject">
-          <slot :theLevel="currentLevel">
+          <slot :theData="childData">
             <p>No child template specified!</p>
           </slot>
-          <div v-show="open" class="controlsWrapper">
-            <select v-model="currentLevel">
+          <div v-show="open && show[type]" class="controlsWrapper form-group">
+            <label>Current ethical level&nbsp;</label>
+            <select class="form-control" v-model="childData.currentLevel">
               <option disabled>Select an ethical level</option>
               <option v-for="option in options" :value.number="option.value">{{option.text}}</option>
             </select>
+            <div class="checkbox">
+              <label>
+              <input type="checkbox" v-model="userDisagrees">
+                I disagree with this rating
+              </label>
+            </div>
+            <transition name="fade">
+              <template v-if="userDisagrees">
+                <span>
+                  <label>New ethical level&nbsp;</label>
+                  <select class="form-control" v-model="newEthicalLevel">
+                    <option disabled>Select an ethical level</option>
+                    <option v-for="option in options" :value.number="option.value">{{option.text}}</option>
+                  </select>
+                </span>
+              </template>
+            </transition>
           </div>
         </div>
      </script>    
       <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+      <script type="text/javascript" src="bower_components/slidereveal/dist/jquery.slidereveal.min.js"></script>         
       <script type="text/javascript" src="js/bootstrap.min.js"></script>         
       <script type="text/javascript" src="js/plugins.js"></script>
       <script type="text/javascript" src="js/bskit-scripts.js"></script>         

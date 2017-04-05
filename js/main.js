@@ -1,5 +1,5 @@
 'use strict';
-/* Utility functions */
+/* Utility functions and variables */
 
 var Util = {} || Util;
 Util.ETHICAL = 0;
@@ -19,6 +19,15 @@ Util.ethicalOptions = [
         { text: 'Somewhat ethical', value: Util.SOMEWHAT_ETHICAL },
         { text: 'Somewhat unethical', value: Util.SOMEWHAT_UNETHICAL },
         { text: 'Unethical', value: Util.UNETHICAL }
+        ];
+
+Util.persuasiveTypes = [
+        { text: 'Reciprocity', value: Util.RECIPROCITY },
+        { text: 'Social Proof', value: Util.SOCIAL_PROOF },
+        { text: 'Commitment and Consistency', value: Util.COMMITMENT },
+        { text: 'Liking', value: Util.LIKING },
+        { text: 'Appeal to Authority', value: Util.AUTHORITY },
+        { text: 'Scarcity and Urgency', value: Util.SCARCITY }
         ];
 
 /* return a random integer between 0 and max */
@@ -108,7 +117,10 @@ Vue.component('ethical-controls', {
   data: function() {
     return {
       userDisagrees: false,
-      currentLevel: this.level,
+      childData: {
+        currentLevel: this.level,
+        currentType: this.type
+      },
       newEthicalLevel: this.level,
       options: Util.ethicalOptions
     };
@@ -118,7 +130,7 @@ Vue.component('ethical-controls', {
       var classes = {controlsTemplateWrapper: true};
       if (this.open && this.show[this.type]) {
         classes.open = true;
-        switch (this.currentLevel) {
+        switch (this.newEthicalLevel) {
           case Util.ETHICAL:
              classes.ethical = true;
              break;
@@ -137,8 +149,10 @@ Vue.component('ethical-controls', {
       return classes;
     }
   },
-  created: function() {
-    var self = this;
+  methods: {
+    updateEthicalLevel: function() {
+      var self = this;
+    }
   }
 });
 
@@ -161,14 +175,9 @@ Vue.component('text-element', {
         }
       }
   },
-  data: function() {
-    return {
-      ethicalLevel: this.level
-    };
-  },
   computed: {
     msg: function() {
-      return Util.chooseElement(this.type, this.ethicalLevel, this.choices);
+      return Util.chooseElement(this.type, this.level, this.choices);
     }
   },
   created: function() {
@@ -186,15 +195,20 @@ var app = new Vue({
   data: {
     ethicalLevel: Default.ethicalLevel,
     persuasiveType: Default.persuasiveType,
+    persuasiveTypes: Util.persuasiveTypes,
     controlsOpen: false,
+    sidebarOpen: false,
     typesToShow: [true, true, true, true, true, true]
   },
   methods: {
     toggleControls: function () {
-      this.controlsOpen = !this.controlsOpen;
+      this.controlsOpen = true;
+      this.sidebarOpen = true;
+      // show/hide the controls menu
+      this.slider.slideReveal("toggle", false);
     },
     toggleTypeToShow: function (newType) {
-      Vue.set(self.typesToShow, newType, !self.typesToShow[newType]);
+      Vue.set(this.typesToShow, newType, !this.typesToShow[newType]);
     }
   },
   created: function() {
@@ -203,6 +217,10 @@ var app = new Vue({
     bus.$on('toggle-type-to-show', function (newType) {
       Vue.set(self.typesToShow, newType, !self.typesToShow[newType]);
     });
+  },
+  mounted: function() {
+    // init the slide-in panel jQuery plug-in
+    this.slider = $('#controlMenu').slideReveal({position: "right", width: "20%"}); // slideReveal return $('#slider')
   }
 });
 

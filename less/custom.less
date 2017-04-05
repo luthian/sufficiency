@@ -1,25 +1,20 @@
 /* Variables */
 
 @ethical-color: green;
-@somewhat-ethical-color: gold;
-@somewhat-unethical-color: goldenrod;
+@somewhat-ethical-color: goldenrod;
+@somewhat-unethical-color: mediumorchid;
+// @somewhat-ethical-color: gold;
+// @somewhat-unethical-color: goldenrod;
 @unethical-color: red;
 
 @border-color: #aaa;
 @control-color: #fff;
 @link-color: initial;
 
+@default-border: 1px solid @border-color;
 /* Put your custom styles here */
 body {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: @link-color;
-}
-
-a:hover {
-  color: @link-color;
 }
 
 .promo-3 {
@@ -37,10 +32,54 @@ a:hover {
   }
 }
 
+select.form-control {
+  -webkit-appearance: menulist-button;
+}
+
+.flexWithWrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sidebar {
+  background-color: #eee;
+  box-shadow: 5px 0 15px -6px #585858 inset;
+  padding: 0 20px;
+  
+  h3 {
+    text-align: center;
+    font-weight: bold;
+    border-bottom: @default-border;
+    padding-bottom: 20px;
+  }
+  
+  h4 {
+    border-bottom: @default-border;
+    padding-bottom: 5px;
+  }
+  
+  section {
+    border-bottom: @default-border;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .typeControls {
+    .form-group {
+      margin-left: 15px;
+    }
+  }
+  
+}
+
 .controlsTemplateWrapper {
+  a, a:hover, a:active {
+    color: @link-color;
+  }
+
   &.open {
     border: 3px solid @border-color;
-    padding: 5px;
+    padding: 10px;
     border-radius: 10px;
     border-style: dashed;
     display: inline-block;
@@ -54,7 +93,7 @@ a:hover {
       border-color: @somewhat-ethical-color;
     }
     &.somewhatUnethical {
-      border-color: @somewhat-ethical-color;
+      border-color: @somewhat-unethical-color;
     }
     &.unethical {
       border-color: @unethical-color;
@@ -62,31 +101,56 @@ a:hover {
   }
   
   .controlsWrapper {
+    
+    .checkbox label, .radio label {
+      font-size: 1.1em;
+      line-height: 1.5;
+    }
+    
     color: #222;
     padding: 10px 5px 5px 5px;
     background-color: rgba(255,255,255,0.4);
     font-size: 1.25rem;
     text-align: left;
+    
+    &.form-group {
+      margin-bottom: 0;
+    }
   }
 }
 
-.eyeControl {
+.eyeControl, .gearControl {
   position: absolute;
   z-index: 105;
-  top: -20px;
-  right: 20px;
+  top: 20px;
+  right: 55px;
   color: @control-color;
 }
 
-  a.eyeControl:hover {
-    color: @control-color;
-  }
+.gearControl {
+  right: 20px;  
+}
 
+a.eyeControl:hover, .gearControl:hover {
+  color: @control-color;
+}
+
+.content-2-2 .icon-outline:hover {
+    box-shadow: none;
+    color: inherit;
+}
 
 /* Fade values for Vue transitions */
 .fade-enter-active, .fade-leave-active {
   transition: opacity .3s
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+  opacity: 0
+}
+/* slide-fade values for Vue transitions */
+.slide-fade-enter-active, .slide-fade-leave-active {
+  transition: opacity .3s
+}
+.slide-fade-enter, .slide-fade-leave-to /* .fade-leave-active in <2.1.8 */ {
   opacity: 0
 }
