@@ -202,8 +202,8 @@ var app = new Vue({
   },
   methods: {
     toggleControls: function () {
-      this.controlsOpen = true;
-      this.sidebarOpen = true;
+      this.sidebarOpen = !this.sidebarOpen;
+      this.controlsOpen = this.sidebarOpen; // Force controls display to have the same state
       // show/hide the controls menu
       this.slider.slideReveal("toggle", false);
     },
