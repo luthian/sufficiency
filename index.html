@@ -184,12 +184,24 @@
           <slot :theData="childData">
             <p>No child template specified!</p>
           </slot>
-          <div v-show="open && show[type]" class="controlsWrapper form-group">
-            <label>Current ethical level&nbsp;</label>
-            <select class="form-control" v-model="childData.currentLevel">
-              <option disabled>Select an ethical level</option>
-              <option v-for="option in options" :value.number="option.value">{{option.text}}</option>
-            </select>
+          <div v-show="open && show[type]" class="controlsWrapper form-group form-group-sm">
+            <transition name="fade">
+              <template v-if="!userDisagrees">
+                <span>
+                  <label>Current ethical level&nbsp;<i @click.prevent="showLevelDescription()" class="fa fa-2x fa-info-circle pull-right"></i>
+    </label>
+                  <select class="form-control" v-model="childData.currentLevel">
+                    <option disabled>Select an ethical level</option>
+                    <option v-for="option in options" :value.number="option.value">{{option.text}}</option>
+                  </select>
+                </span>
+              </template>
+              <template v-else>
+              <div>
+                Old level is <strong>{{ options[childData.currentLevel].text}}</strong>
+              </div>
+              </template>
+            </transition>
             <div class="checkbox">
               <label>
               <input type="checkbox" v-model="userDisagrees">
@@ -204,6 +216,7 @@
                     <option disabled>Select an ethical level</option>
                     <option v-for="option in options" :value.number="option.value">{{option.text}}</option>
                   </select>
+                  <button class="btn btn-primary btn-sm btn-block" :disabled="this.newEthicalLevel === this.childData.currentLevel" @click.prevent="updateEthicalLevel()">Adjust rating</button>
                 </span>
               </template>
             </transition>
