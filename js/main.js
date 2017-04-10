@@ -36,8 +36,12 @@ Util.getRandomNum = function(max) {
 };
 
 Util.chooseRandomElement = function(type, ethicalLevel, choices) {
+  var index = Util.getRandomNum(choices[type][ethicalLevel].length - 1); // arrays are zero based
+  return Util.chooseElement(index, type, ethicalLevel, choices);
+};
+
+Util.chooseElement = function(index, type, ethicalLevel, choices) {
   if (choices[type] && choices[type][ethicalLevel]) {
-    var index = Util.getRandomNum(choices[type][ethicalLevel].length - 1); // arrays are zero based
     return choices[type][ethicalLevel][index];
   }
   else {
@@ -112,6 +116,12 @@ Vue.component('ethical-controls', {
         default: function() {
           return ([true, true, true, true, true, true]);
         }
+      },
+      choices: {
+        type: Array,
+        default: function () {
+          return Default.choices;
+        }
       }
   },
   data: function() {
@@ -119,7 +129,8 @@ Vue.component('ethical-controls', {
       userDisagrees: false,
       childData: {
         currentLevel: this.level,
-        currentType: this.type
+        currentType: this.type,
+        currentIndex: Util.getRandomNum(this.$props.choices[this.$props.type][this.$props.level].length - 1)
       },
       newEthicalLevel: this.level,
       options: Util.ethicalOptions
@@ -152,11 +163,22 @@ Vue.component('ethical-controls', {
   },
   methods: {
     updateEthicalLevel: function() {
-      var self = this;
-    },
-    showLevelDescription: function() {
-      var self = this;
+      //Todo (David D'Antonio): Code to update the array of ethical strings goes here.
+      bus.$emit('change-ethical-level', this.childData, this.choices, this.newEthicalLevel);
+      // Clear the checkbox
+      this.userDisagrees = false;
     }
+  },
+  updated: function() {
+    // We have to re-add the tooltips each time the dom is rendered
+    // because blocks controls by v-if aren't in the dom if their
+    // governing condition is false
+    $('[data-toggle="tooltip"]').tooltip()
+  },
+  beforeUpdate: function() {
+    // Nuke all tooltips before we update. They will be added back
+    // after the update.
+    $('[data-toggle="tooltip"]').tooltip('destroy')
   }
 });
 
@@ -164,6 +186,10 @@ Vue.component('ethical-controls', {
 Vue.component('text-element', {
   template: '<span> {{ msg }} </span>',
   props: {
+      index: {
+        type: Number,
+        default: -1
+      },
       level: {
         type: Number,
         default: Default.ethicalLevel
@@ -179,10 +205,15 @@ Vue.component('text-element', {
         }
       }
   },
+  data: function() {
+    return {
+      itemIndex: (this.$props.index === -1 ? Util.getRandomNum(this.$props.choices[this.$props.type][this.$props.level].length - 1) : this.$props.index)
+    }
+  },
   computed: {
     msg: function() {
-      return Util.chooseRandomElement(this.type, this.level, this.choices);
-    }
+      return Util.chooseElement(this.itemIndex, this.type, this.level, this.choices);
+      }
   },
   created: function() {
     var self = this;
@@ -202,7 +233,10 @@ var app = new Vue({
     persuasiveTypes: Util.persuasiveTypes,
     controlsOpen: false,
     sidebarOpen: false,
-    typesToShow: [true, true, true, true, true, true]
+    typesToShow: [true, true, true, true, true, true],
+    msg: "",
+    oldLevel: "",
+    newLevel:""
   },
   methods: {
     toggleControls: function () {
@@ -220,6 +254,14 @@ var app = new Vue({
 // Listen for changes to which persuasive types to show
     bus.$on('toggle-type-to-show', function (newType) {
       Vue.set(self.typesToShow, newType, !self.typesToShow[newType]);
+    });
+// Listen for changes to ethical levels
+    bus.$on('change-ethical-level', function (childData, choices, newLevel) {
+      var msg = Util.chooseElement(childData.currentIndex, childData.currentType, childData.currentLevel, choices);
+      self.msg = msg;
+      self.oldLevel = Util.ethicalOptions[childData.currentLevel].text;
+      self.newLevel = Util.ethicalOptions[newLevel].text;
+      $("#voteRecorded").modal('show');
     });
   },
   mounted: function() {

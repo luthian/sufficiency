@@ -39,7 +39,7 @@
               <h2 id="subHeader" class="pad30">
                 <ethical-controls :show="typesToShow" :open="controlsOpen" :level="ethicalLevel">
                   <template scope="{theData}">
-                    <text-element :type="4" :level="theData.currentLevel"></text-element>
+                    <text-element :type="4" :index="theData.currentIndex" :level="theData.currentLevel"></text-element>
                   </template>
                 </ethical-controls>
               </h2>
@@ -55,7 +55,7 @@
                           <div class="col-md-12 col-xs-10">
                             <ethical-controls :show="typesToShow" :type="n+1" :open="controlsOpen" :level="n-1">
                               <template scope="{theData}">
-                                <text-element :type="theData.currentType" :level="theData.currentLevel"></text-element>
+                                <text-element :index="theData.currentIndex" :type="theData.currentType" :level="theData.currentLevel"></text-element>
                               </template>
                             </ethical-controls>
                           </div>
@@ -178,6 +178,22 @@
             </div>
           </section>
         </aside>
+        <div class="modal fade" id="voteRecorded" tabindex="-1" role="dialog" aria-labelledby="voteRecordedLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="voteRecordedLabel">Your vote has been recorded!</h4>
+              </div>
+              <div class="modal-body">
+                <p>Thank you! Your vote to change the ethical level of <em>{{ msg }}</em> from <em>{{ oldLevel }}</em> to <em>{{ newLevel }}</em> has been recorded.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <script type="text/x-template" id="control-template">
         <div :class="classObject">
@@ -188,7 +204,7 @@
             <transition name="fade">
               <template v-if="!userDisagrees">
                 <span>
-                  <label>Current ethical level&nbsp;<i @click.prevent="showLevelDescription()" class="fa fa-2x fa-info-circle pull-right"></i>
+                  <label>Current ethical level&nbsp;<i data-toggle="tooltip" data-placement="top" :data-original-title="options[childData.currentLevel].definition" class="fa fa-2x fa-info-circle pull-right"></i>
     </label>
                   <select class="form-control" v-model="childData.currentLevel">
                     <option disabled>Select an ethical level</option>
@@ -198,7 +214,7 @@
               </template>
               <template v-else>
               <div>
-                Old level is <strong>{{ options[childData.currentLevel].text}}</strong>
+                Current level is <strong>{{ options[childData.currentLevel].text}}</strong><i data-toggle="tooltip" data-placement="top" :data-original-title="options[childData.currentLevel].definition" class="fa fa-2x fa-info-circle pull-right"></i>
               </div>
               </template>
             </transition>
@@ -211,9 +227,9 @@
             <transition name="fade">
               <template v-if="userDisagrees">
                 <span>
-                  <label>New ethical level&nbsp;</label>
+                  <label>New ethical level&nbsp;<i data-toggle="tooltip" data-placement="top" :data-original-title="options[newEthicalLevel].definition" class="fa fa-2x fa-info-circle pull-right"></i></label>
                   <select class="form-control" v-model="newEthicalLevel">
-                    <option disabled>Select an ethical level</option>
+                    <option disabled>Select an ethical level<i data-toggle="tooltip" data-placement="top" :data-original-title="options[newEthicalLevel].definition" class="fa fa-2x fa-info-circle pull-right"></i></option>
                     <option v-for="option in options" :value.number="option.value">{{option.text}}</option>
                   </select>
                   <button class="btn btn-primary btn-sm btn-block" :disabled="this.newEthicalLevel === this.childData.currentLevel" @click.prevent="updateEthicalLevel()">Adjust rating</button>
@@ -222,7 +238,7 @@
             </transition>
           </div>
         </div>
-     </script>    
+      </script>    
       <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
       <script type="text/javascript" src="bower_components/slidereveal/dist/jquery.slidereveal.min.js"></script>         
       <script type="text/javascript" src="js/bootstrap.min.js"></script>         
