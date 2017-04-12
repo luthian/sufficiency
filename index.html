@@ -22,7 +22,7 @@
         <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
       <script src="js/respond.min.js"></script>
-    <![endif]-->         
+    <![endif]-->
     </head>     
     <body data-spy="scroll" data-target="nav">
       <div id="app">
@@ -69,27 +69,17 @@
               <div class="container">
                   <!-- Start Row -->
                   <div class="row">
-                      <div class="col-sm-4 col-xs-12 text-center">
-                          <div class="icon-outline">
-                              <span class="fa fa-send"></span>
+                    <div class="col-sm-6 col-md-3 col-xs-12" v-for="n in 4">
+                      <ethical-controls :choices="testimonials.choices" :show="typesToShow" :type="n+1" :open="controlsOpen" :level="n-1">
+                        <template scope="{theData}">
+                          <testimonial-element :index="n">
+                          </testimonial-element>
+                          <div class="testimonialContent">
+                            <text-element :index="theData.currentIndex" :type="theData.currentType" :level="theData.currentLevel"></text-element>
                           </div>
-                          <h3>Make your ideas happen</h3>
-                          <p>Etsy ethnic actually hella Odd Future meggings shabby chic leggings salvia master cleanse stumptown.</p>
-                      </div>
-                      <div class="col-sm-4 col-xs-12 text-center">
-                          <div class="icon-outline">
-                              <span class="fa fa-star"></span>
-                          </div>
-                          <h3>Hands-on customer support</h3>
-                          <p>Etsy ethnic actually hella Odd Future meggings shabby chic leggings salvia master cleanse stumptown.</p>
-                      </div>
-                      <div class="col-sm-4 col-xs-12 text-center">
-                          <div class="icon-outline">
-                              <span class="fa fa-tags"></span>
-                          </div>
-                          <h3>Hand crafted, quality code</h3>
-                          <p>Etsy ethnic actually hella Odd Future meggings shabby chic leggings salvia master cleanse stumptown.</p>
-                      </div>
+                        </template>
+                      </ethical-controls>
+                    </div>
                   </div>
                   <!--// END Row -->
               </div>
@@ -97,23 +87,15 @@
           <section id="content-1-7" class="content-1-7 content-block">
               <div class="container">
                   <div class="row">
-                      <div class="col-md-2 col-sm-4">
-                          <img alt="Client Logo" src="images/partner-logos/logo-bootstrap.png">
-                      </div>
-                      <div class="col-md-2 col-sm-4">
-                          <img alt="Client Logo" src="images/partner-logos/logo-less.png">
-                      </div>
-                      <div class="col-md-2 col-sm-4">
-                          <img alt="Client Logo" src="images/partner-logos/logo-sass.png">
-                      </div>
-                      <div class="col-md-2 col-sm-4">
-                          <img alt="Client Logo" src="images/partner-logos/logo-yeoman.png">
-                      </div>
-                      <div class="col-md-2 col-sm-4">
-                          <img alt="Client Logo" src="images/partner-logos/logo-bower.png">
-                      </div>
-                      <div class="col-md-2 col-sm-4">
-                          <img alt="Client Logo" src="images/partner-logos/logo-jquery.png">
+                      <div class="col-xs-12">
+                        <ethical-controls :choices="ctas.choices" :show="typesToShow" :type="ctas.persuasiveType" :open="controlsOpen" :level="ctas.ethicalLevel">
+                          <template scope="{theData}">
+                           <button class="btn btn-primary btn-lg">
+                              I want this!<br>
+                                (<text-element :index="theData.currentIndex" :type="theData.currentType" :level="theData.currentLevel"></text-element>)
+                            </button>
+                          </template>
+                        </ethical-controls>
                       </div>
                   </div>
                   <!--end of row-->
@@ -124,7 +106,7 @@
         <footer class="content-block-nopad bg-deepocean footer-wrap-1-3">
             <div class="container footer-1-3">
                 <div class="col-md-4 pull-left">
-                    <img src="images/brand/pgblocks-logo-white.png" class="brand-img img-responsive">
+                    <p class="companyName">Boss Marketing, Inc</p>
                     <ul class="social social-light">
                         <li>
                             <a href="#"><i class="fa fa-2x fa-facebook"></i></a>
@@ -138,23 +120,17 @@
                         <li>
                             <a href="#"><i class="fa fa-2x fa-pinterest"></i></a>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-2x fa-behance"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-2x fa-dribbble"></i></a>
-                        </li>
                     </ul>
                     <!-- /.social -->
                 </div>
                 <div class="col-md-3 pull-right">
                     <p class="address-bold-line">We <i class="fa fa-heart pomegranate"></i> our amazing customers</p>
                     <p class="address small">
-					123 Anywhere Street,<br>
+					221B Baker Street,<br>
 					London,<br>
 					LO4 6ON</p>
                 </div>
-                <div class="col-xs-12 footer-text">
+                <div class="col-xs-12 footer-text hidden">
                     <p>Please take a few minutes to read our <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></p>
                 </div>
             </div>
@@ -238,13 +214,33 @@
             </transition>
           </div>
         </div>
-      </script>    
+      </script>
+      <script type="text/x-template" id="testimonial-template">
+        <div class="testimonialContainer clearfix">
+          <div class="faceContainer">
+              <img :src="tPic">
+          </div>
+          <div class="infoBlock">
+            <span class="name">{{ tName }}</span>
+            <span class="title">{{ tTitle }}</span>
+            <span class="hearts">
+              <i class="fa fa-2x fa-heart"></i>
+              <i class="fa fa-2x fa-heart"></i>
+              <i class="fa fa-2x fa-heart"></i>
+              <i class="fa fa-2x fa-heart"></i>
+              <i class="fa fa-2x fa-heart"></i>
+            </span>
+          </div>
+        </div>
+      </script>
       <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
       <script type="text/javascript" src="bower_components/slidereveal/dist/jquery.slidereveal.min.js"></script>         
       <script type="text/javascript" src="js/bootstrap.min.js"></script>         
       <script type="text/javascript" src="js/plugins.js"></script>
       <script type="text/javascript" src="js/bskit-scripts.js"></script>         
       <script type="text/javascript" src="bower_components/vue/dist/vue.js"></script>         
+      <!-- Utility functions and variables -->
+      <script type="text/javascript" src="js/Utils.min.js"></script>
       <script type="text/javascript" src="js/main.min.js"></script>
     </body>     
 </html>

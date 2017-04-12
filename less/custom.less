@@ -2,9 +2,11 @@
 
 @ethical-color: green;
 @somewhat-ethical-color: goldenrod;
-@somewhat-unethical-color: mediumorchid;
 // @somewhat-ethical-color: gold;
+// @somewhat-unethical-color: darkorange;
 // @somewhat-unethical-color: goldenrod;
+// @somewhat-unethical-color: #a94442;
+@somewhat-unethical-color: darkred;
 @unethical-color: red;
 
 @border-color: #aaa;
@@ -12,11 +14,15 @@
 @link-color: initial;
 
 @default-border: 1px solid @border-color;
+
+@medium-breakpoint: 1200px;
+
 /* Put your custom styles here */
 body {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
 }
 
+/* Pinegrow Blocks style overrides */
 .promo-3 {
   
   h1 {
@@ -36,6 +42,11 @@ body {
   }
 }
 
+.content-2-2 .icon-outline:hover {
+    box-shadow: none;
+    color: inherit;
+}
+
 select.form-control {
   -webkit-appearance: menulist-button;
 }
@@ -43,6 +54,11 @@ select.form-control {
 .flexWithWrap {
   display: flex;
   flex-wrap: wrap;
+}
+
+.flexWithoutWrap {
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .sidebar {
@@ -74,7 +90,48 @@ select.form-control {
       margin-left: 15px;
     }
   }
-  
+}
+
+.faceContainer {
+  img {
+    border-radius: 50%;
+    border: 3px solid whitesmoke;
+    float: left;
+    display: block;
+    margin-right: 1em;
+  }
+}
+
+@media (max-width: @medium-breakpoint) {
+  .faceContainer {
+    img {
+      float: none;
+      margin-right: 0;
+    }
+  }
+}
+
+.infoBlock {
+
+  span {
+    display: block;
+    text-align: left;
+    
+    &.name {
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+    
+    &.hearts {
+      font-size: 0.9em;
+      margin-top: 5px;
+      color: white;
+    }
+  }
+}
+
+.testimonialContent {
+  padding: 10px;
 }
 
 .controlsTemplateWrapper {
@@ -88,6 +145,7 @@ select.form-control {
     border-radius: 10px;
     border-style: dashed;
     display: inline-block;
+    margin-top: 10px;
 
     /* Ethical classes */
     
@@ -146,9 +204,10 @@ a.eyeControl:hover, .gearControl:hover {
   color: @control-color;
 }
 
-.content-2-2 .icon-outline:hover {
-    box-shadow: none;
-    color: inherit;
+.companyName {
+  color: white;
+  font-size: 2em;
+  margin: 0;
 }
 
 /* Fade values for Vue transitions */

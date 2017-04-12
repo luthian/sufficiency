@@ -8481,6 +8481,72 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/images\/testimonials\/Rectangle_1.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 16197,
+		"inputAbbreviatedPath": "\/images\/testimonials\/Rectangle_1.png",
+		"outputAbbreviatedPath": "\/images\/testimonials\/Rectangle_1.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/testimonials\/Rectangle_2.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 13455,
+		"inputAbbreviatedPath": "\/images\/testimonials\/Rectangle_2.png",
+		"outputAbbreviatedPath": "\/images\/testimonials\/Rectangle_2.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/testimonials\/Rectangle_3.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 13235,
+		"inputAbbreviatedPath": "\/images\/testimonials\/Rectangle_3.png",
+		"outputAbbreviatedPath": "\/images\/testimonials\/Rectangle_3.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/testimonials\/Rectangle_4.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 17167,
+		"inputAbbreviatedPath": "\/images\/testimonials\/Rectangle_4.png",
+		"outputAbbreviatedPath": "\/images\/testimonials\/Rectangle_4.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/testimonials\/Rectangle_5.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 14544,
+		"inputAbbreviatedPath": "\/images\/testimonials\/Rectangle_5.png",
+		"outputAbbreviatedPath": "\/images\/testimonials\/Rectangle_5.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/testimonials\/Rectangle_6.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 10634,
+		"inputAbbreviatedPath": "\/images\/testimonials\/Rectangle_6.png",
+		"outputAbbreviatedPath": "\/images\/testimonials\/Rectangle_6.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/images\/typewriter-bg.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -8626,6 +8692,28 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/js\/UserLib.js",
 		"outputAbbreviatedPath": "\/js\/min\/UserLib-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 2,
+		"syntaxCheckerStyle": 0
+		},
+	"\/js\/Utils.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/Utils.js",
+		"outputAbbreviatedPath": "\/js\/Utils.min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 2,
+		"syntaxCheckerStyle": 0
+		},
+	"\/js\/Utils.min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/Utils.min.js",
+		"outputAbbreviatedPath": "\/js\/Utils.min.min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 2,
