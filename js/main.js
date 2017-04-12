@@ -178,6 +178,11 @@ var app = new Vue({
       Vue.set(this.typesToShow, newType, !this.typesToShow[newType]);
     }
   },
+  computed: {
+    terms: function() {
+      return Util.chooseElement(this.itemIndex, this.type, this.level, this.choices);
+      }
+  },
   created: function() {
     var self = this;
 // Listen for changes to which persuasive types to show
@@ -196,6 +201,7 @@ var app = new Vue({
   mounted: function() {
     // init the slide-in panel jQuery plug-in
     this.slider = $('#controlMenu').slideReveal({position: "right", width: "20%"}); // slideReveal return $('#slider')
+    $('.footer-text [data-toggle="popover"]').popover({placement: "top"});
   }
 });
 

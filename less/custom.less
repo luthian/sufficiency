@@ -15,7 +15,8 @@
 
 @default-border: 1px solid @border-color;
 
-@medium-breakpoint: 1200px;
+@medium-breakpoint: 992px;
+@large-breakpoint: 1200px;
 
 /* Put your custom styles here */
 body {
@@ -51,6 +52,7 @@ select.form-control {
   -webkit-appearance: menulist-button;
 }
 
+/* Page styles */
 .flexWithWrap {
   display: flex;
   flex-wrap: wrap;
@@ -102,7 +104,7 @@ select.form-control {
   }
 }
 
-@media (max-width: @medium-breakpoint) {
+@media (max-width: @large-breakpoint)  and (min-width: @medium-breakpoint) {
   .faceContainer {
     img {
       float: none;
@@ -210,6 +212,15 @@ a.eyeControl:hover, .gearControl:hover {
   margin: 0;
 }
 
+.popover-title {
+  color: #222;
+  text-align: center;
+  font-weight: bold;
+}
+
+.popover-content {
+  color: #444;
+}
 /* Fade values for Vue transitions */
 .fade-enter-active, .fade-leave-active {
   transition: opacity .3s
