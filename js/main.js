@@ -80,6 +80,9 @@ Vue.component('ethical-controls', {
       bus.$emit('change-ethical-level', this.childData, this.choices, this.newEthicalLevel);
       // Clear the checkbox
       this.userDisagrees = false;
+    },
+    hasEntriesOfThisLevel: function(level) {
+      return (this.choices[this.childData.currentType][level][this.childData.currentIndex] ? true : false);
     }
   },
   updated: function() {

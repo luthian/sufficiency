@@ -193,7 +193,7 @@
       </label>
                     <select class="form-control" v-model="childData.currentLevel">
                       <option disabled>Select an ethical level</option>
-                      <option v-for="option in options" :value.number="option.value">{{option.text}}</option>
+                      <option v-for="option in options" :disabled="!hasEntriesOfThisLevel(option.value)" :value.number="option.value">{{option.text}}</option>
                     </select>
                   </span>
                 </template>
