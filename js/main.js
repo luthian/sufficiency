@@ -26,6 +26,10 @@ Vue.component('ethical-controls', {
           return ([true, true, true, true, true, true]);
         }
       },
+      editable: {
+        type: Boolean,
+        default: true
+      },
       choices: {
         type: Array,
         default: function () {
@@ -160,6 +164,8 @@ var app = new Vue({
     persuasiveTypes: Util.persuasiveTypes,
     testimonials: Testimonials,
     ctas: CTAs,
+    social: Social,
+    customer: Customer,
     controlsOpen: false,
     sidebarOpen: false,
     typesToShow: [true, true, true, true, true, true],

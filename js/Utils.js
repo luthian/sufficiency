@@ -180,7 +180,25 @@ CTAs.choices[Util.SCARCITY] = []
 CTAs.choices[Util.SCARCITY][Util.ETHICAL] = ["Buy this bundle of courses now and save 20% off the list price. This offer expires promptly on Friday at midnight.", "Ethical Scarcity1", "Ethical Scarcity2", "Ethical Scarcity3", "Ethical Scarcity4"];
 CTAs.choices[Util.SCARCITY][Util.SOMEWHAT_ETHICAL] = ["Buy this bundle of courses now and save 20%. This offer expires on Friday.", "Somewhat Ethical Scarcity1", "Somewhat Ethical Scarcity2", "Somewhat Ethical Scarcity3"];
 CTAs.choices[Util.SCARCITY][Util.SOMEWHAT_UNETHICAL] = ["Buy this bundle of courses now and save 20%. This offer expires soon.", "Somewhat UnEthical Scarcity1", "Somewhat UnEthical Scarcity2"];
-CTAs.choices[Util.SCARCITY][Util.UNETHICAL] = ["Buy this bundle of courses now and save 80% over what others are paying. Don't delay as this offer is time-limited.", "UnEthical Scarcity1"];
+CTAs.choices[Util.SCARCITY][Util.UNETHICAL] = ["Buy this bundle of courses now and save 80% over what others are paying.", "UnEthical Scarcity1"];
 
 CTAs.ethicalLevel = Util.SOMEWHAT_UNETHICAL;
 CTAs.persuasiveType = Util.SCARCITY;
+
+var Social = {} || Social;
+
+Social.choices = [];
+Social.choices[Util.SOCIAL_PROOF] = []
+Social.choices[Util.SOCIAL_PROOF][Util.SOMEWHAT_ETHICAL] = ["Social media share counts block"];
+
+Social.ethicalLevel = Util.SOMEWHAT_ETHICAL;
+Social.persuasiveType = Util.SOCIAL_PROOF;
+
+var Customer = {} || Customer;
+
+Customer.choices = [];
+Customer.choices[Util.RECIPROCITY] = []
+Customer.choices[Util.RECIPROCITY][Util.SOMEWHAT_ETHICAL] = ["Customer appreciation block"];
+
+Customer.ethicalLevel = Util.SOMEWHAT_ETHICAL;
+Customer.persuasiveType = Util.RECIPROCITY;

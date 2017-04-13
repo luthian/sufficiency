@@ -107,24 +107,32 @@
             <div class="container footer-1-3">
                 <div class="col-md-4 pull-left">
                     <p class="companyName">Boss Marketing, Inc</p>
-                    <ul class="social social-light">
-                        <li>
-                            <a href="#"><i class="fa fa-2x fa-facebook"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-2x fa-twitter"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-2x fa-google-plus"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-2x fa-pinterest"></i></a>
-                        </li>
-                    </ul>
+                      <ethical-controls  :editable="false" :choices="social.choices" :show="typesToShow" :type="social.persuasiveType" :open="controlsOpen" :level="social.ethicalLevel">
+                        <ul class="social social-light">
+                            <li>
+                                <a><i class="fa fa-2x fa-facebook"></i>
+                                <div class="socialCount">21K</div></a>
+                            </li>
+                            <li>
+                                <a><i class="fa fa-2x fa-twitter"></i>
+                                <div class="socialCount">15K</div></a>
+                            </li>
+                            <li>
+                                <a><i class="fa fa-2x fa-google-plus"></i>
+                                <div class="socialCount">3K</div></a>
+                            </li>
+                            <li>
+                                <a><i class="fa fa-2x fa-pinterest"></i>
+                                <div class="socialCount">12K</div></a>
+                            </li>
+                        </ul>
+                    </ethical-controls>
                     <!-- /.social -->
                 </div>
                 <div class="col-md-3 pull-right">
+                  <ethical-controls  :editable="false" :choices="customer.choices" :show="typesToShow" :type="customer.persuasiveType" :open="controlsOpen" :level="customer.ethicalLevel">
                     <p class="address-bold-line">We <i class="fa fa-heart pomegranate"></i> our amazing customers</p>
+                  </ethical-controls>
                     <p class="address small">
 					221B Baker Street,<br>
 					London,<br>
@@ -177,41 +185,43 @@
             <p>No child template specified!</p>
           </slot>
           <div v-show="open && show[type]" class="controlsWrapper form-group form-group-sm">
-            <transition name="fade">
-              <template v-if="!userDisagrees">
-                <span>
-                  <label>Current ethical level&nbsp;<i data-toggle="tooltip" data-placement="top" :data-original-title="options[childData.currentLevel].definition" class="fa fa-2x fa-info-circle pull-right"></i>
-    </label>
-                  <select class="form-control" v-model="childData.currentLevel">
-                    <option disabled>Select an ethical level</option>
-                    <option v-for="option in options" :value.number="option.value">{{option.text}}</option>
-                  </select>
-                </span>
-              </template>
-              <template v-else>
-              <div>
-                Current level is <strong>{{ options[childData.currentLevel].text}}</strong><i data-toggle="tooltip" data-placement="top" :data-original-title="options[childData.currentLevel].definition" class="fa fa-2x fa-info-circle pull-right"></i>
+            <div class="controlsInnerWrapper">
+              <transition name="fade">
+                <template v-if="!userDisagrees && editable">
+                  <span>
+                    <label>Current ethical level&nbsp;<i data-toggle="tooltip" data-placement="top" :data-original-title="options[childData.currentLevel].definition" class="fa fa-2x fa-info-circle pull-right"></i>
+      </label>
+                    <select class="form-control" v-model="childData.currentLevel">
+                      <option disabled>Select an ethical level</option>
+                      <option v-for="option in options" :value.number="option.value">{{option.text}}</option>
+                    </select>
+                  </span>
+                </template>
+                <template v-else>
+                <div>
+                  Current level is <strong>{{ options[childData.currentLevel].text}}</strong><i data-toggle="tooltip" data-placement="top" :data-original-title="options[childData.currentLevel].definition" class="fa fa-2x fa-info-circle pull-right"></i>
+                </div>
+                </template>
+              </transition>
+              <div class="checkbox">
+                <label>
+                <input type="checkbox" v-model="userDisagrees">
+                  I disagree with this rating
+                </label>
               </div>
-              </template>
-            </transition>
-            <div class="checkbox">
-              <label>
-              <input type="checkbox" v-model="userDisagrees">
-                I disagree with this rating
-              </label>
+              <transition name="fade">
+                <template v-if="userDisagrees">
+                  <span>
+                    <label>New ethical level&nbsp;<i data-toggle="tooltip" data-placement="top" :data-original-title="options[newEthicalLevel].definition" class="fa fa-2x fa-info-circle pull-right"></i></label>
+                    <select class="form-control" v-model="newEthicalLevel">
+                      <option disabled>Select an ethical level<i data-toggle="tooltip" data-placement="top" :data-original-title="options[newEthicalLevel].definition" class="fa fa-2x fa-info-circle pull-right"></i></option>
+                      <option v-for="option in options" :value.number="option.value">{{option.text}}</option>
+                    </select>
+                    <button class="btn btn-primary btn-sm btn-block" :disabled="this.newEthicalLevel === this.childData.currentLevel" @click.prevent="updateEthicalLevel()">Adjust rating</button>
+                  </span>
+                </template>
+              </transition>
             </div>
-            <transition name="fade">
-              <template v-if="userDisagrees">
-                <span>
-                  <label>New ethical level&nbsp;<i data-toggle="tooltip" data-placement="top" :data-original-title="options[newEthicalLevel].definition" class="fa fa-2x fa-info-circle pull-right"></i></label>
-                  <select class="form-control" v-model="newEthicalLevel">
-                    <option disabled>Select an ethical level<i data-toggle="tooltip" data-placement="top" :data-original-title="options[newEthicalLevel].definition" class="fa fa-2x fa-info-circle pull-right"></i></option>
-                    <option v-for="option in options" :value.number="option.value">{{option.text}}</option>
-                  </select>
-                  <button class="btn btn-primary btn-sm btn-block" :disabled="this.newEthicalLevel === this.childData.currentLevel" @click.prevent="updateEthicalLevel()">Adjust rating</button>
-                </span>
-              </template>
-            </transition>
           </div>
         </div>
       </script>
