@@ -85,6 +85,13 @@ Vue.component('ethical-controls', {
       return (this.choices[this.childData.currentType][level][this.childData.currentIndex] ? true : false);
     }
   },
+  created: function() {
+    var self = this;
+// Listen for outside changes to the ethical level 
+    bus.$on('set-ethical-level', function (newLevel) {
+      self.childData.currentLevel = newLevel;
+    });
+  },
   updated: function() {
     // We have to re-add the tooltips each time the dom is rendered
     // because blocks controls by v-if aren't in the dom if their
@@ -148,13 +155,6 @@ Vue.component('text-element', {
     msg: function() {
       return Util.chooseElement(this.itemIndex, this.type, this.level, this.choices);
       }
-  },
-  created: function() {
-    var self = this;
-// Listen for outside changes to the ethical level 
-    bus.$on('set-ethical-level', function (newLevel) {
-      self.ethicalLevel = newLevel;
-    });
   }
 });
 
@@ -165,6 +165,7 @@ var app = new Vue({
     ethicalLevel: Default.ethicalLevel,
     persuasiveType: Default.persuasiveType,
     persuasiveTypes: Util.persuasiveTypes,
+    options: Util.ethicalOptions,
     testimonials: Testimonials,
     ctas: CTAs,
     social: Social,
@@ -185,6 +186,9 @@ var app = new Vue({
     },
     toggleTypeToShow: function (newType) {
       Vue.set(this.typesToShow, newType, !this.typesToShow[newType]);
+    },
+    setMasterEthicalLevel: function () {
+      bus.$emit("set-ethical-level", this.ethicalLevel);
     }
   },
   computed: {

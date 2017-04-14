@@ -144,6 +144,8 @@
             </div>
             <!-- /.container -->
         </footer>
+        
+        <!-- Normally hidden side menu -->
         <aside id="controlMenu" class="sidebar">
           <h3>Ethics and Persuasion</h3>
           <section class="instructions">
@@ -161,16 +163,29 @@
               </div>
             </div>
           </section>
+          <section class="levelReset .form-inline">
+            <h4>Set the master ethical level</h4>
+            <div class="form-group">
+              <label>New ethical level&nbsp;<i data-toggle="tooltip" data-placement="top" :data-original-title="options[ethicalLevel].definition" class="fa fa-2x fa-info-circle pull-right"></i>
+  </label>
+              <select class="form-control" v-model="ethicalLevel">
+                <option disabled>Select an ethical level</option>
+                <option v-for="option in options" :value.number="option.value">{{option.text}}</option>
+              </select>
+              <button type="button" class="btn btn-danger btn-sm" @click.prevent="setMasterEthicalLevel();">Set ethical level</button>
+            </div>
+          </section>
         </aside>
+
         <div class="modal fade" id="voteRecorded" tabindex="-1" role="dialog" aria-labelledby="voteRecordedLabel">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="voteRecordedLabel">Your vote has been recorded!</h4>
+                <h4 class="modal-title" id="voteRecordedLabel">Thank you for voting!</h4>
               </div>
               <div class="modal-body">
-                <p>Thank you! Your vote to change the ethical level of <em>{{ msg }}</em> from <em>{{ oldLevel }}</em> to <em>{{ newLevel }}</em> has been recorded.</p>
+                <p>Thank you for taking the time to vote to change the ethical level of <em>{{ msg }}</em> from <em>{{ oldLevel }}</em> to <em>{{ newLevel }}</em>.</p>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>

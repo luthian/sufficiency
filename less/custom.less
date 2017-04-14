@@ -50,6 +50,7 @@ body {
 
 select.form-control {
   -webkit-appearance: menulist-button;
+  width: auto;
 }
 
 /* Page styles */
@@ -78,20 +79,29 @@ select.form-control {
   
   h4 {
     border-bottom: @default-border;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
   }
   
   section {
-    border-bottom: @default-border;
     padding-bottom: 20px;
     margin-bottom: 20px;
   }
   
-  .typeControls {
+  .typeControls, .levelReset {
     .form-group {
       margin-left: 15px;
     }
+    
+    .fa {
+      margin-left: 2em;
+    }
   }
+  
+  .fa {
+    font-size: 1.5em;
+  }
+    
+
 }
 
 .faceContainer {
