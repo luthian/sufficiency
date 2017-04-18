@@ -39,7 +39,7 @@
               <h2 id="subHeader" class="pad30">
                 <ethical-controls :show="typesToShow" :open="controlsOpen" :level="ethicalLevel">
                   <template scope="{theData}">
-                    <text-element :type="4" :index="theData.currentIndex" :level="theData.currentLevel"></text-element>
+                    <text-element :type="4" :index="theData.currentIndex" :open="controlsOpen" :level="theData.currentLevel"></text-element>
                   </template>
                 </ethical-controls>
               </h2>
@@ -56,7 +56,7 @@
                           <div class="col-md-12 col-xs-10">
                             <ethical-controls :show="typesToShow" :type="n+1" :open="controlsOpen" :level="n-1">
                               <template scope="{theData}">
-                                <text-element :index="theData.currentIndex" :type="theData.currentType" :level="theData.currentLevel"></text-element>
+                                <text-element :open="controlsOpen" :index="theData.currentIndex" :type="theData.currentType" :level="theData.currentLevel"></text-element>
                               </template>
                             </ethical-controls>
                           </div>
@@ -76,7 +76,7 @@
                           <testimonial-element :index="n">
                           </testimonial-element>
                           <div class="testimonialContent">
-                            <text-element :index="theData.currentIndex" :type="theData.currentType" :level="theData.currentLevel"></text-element>
+                            <text-element :open="controlsOpen" :index="theData.currentIndex" :type="theData.currentType" :level="theData.currentLevel"></text-element>
                           </div>
                         </template>
                       </ethical-controls>
@@ -93,7 +93,7 @@
                           <template scope="{theData}">
                            <button class="btn btn-primary btn-lg">
                               I want this!<br>
-                                (<text-element :index="theData.currentIndex" :type="theData.currentType" :level="theData.currentLevel"></text-element>)
+                                (<text-element :open="controlsOpen" :index="theData.currentIndex" :type="theData.currentType" :level="theData.currentLevel"></text-element>)
                             </button>
                           </template>
                         </ethical-controls>

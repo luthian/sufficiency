@@ -37,6 +37,11 @@ body {
     font-weight: normal;
     font-size: 2em;
     
+    span {
+      display: inline-block;
+      padding-bottom: 10px;
+    }
+    
     .btn {
       margin-left: 0;
     }
@@ -173,6 +178,17 @@ select.form-control {
     &.unethical {
       border-color: @unethical-color;
     }
+  }
+  
+  .reason {
+    font-style: normal;
+    border-bottom: 1px dashed;
+    padding-bottom: 2px;
+    cursor: help;
+  }
+  
+  .tooltip-inner {
+    font-size: 1.3em;
   }
   
   .controlsWrapper {

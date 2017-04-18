@@ -55,7 +55,6 @@ Util.chooseElement = function(index, type, ethicalLevel, choices) {
   }
   else {
     return (Util.chooseRandomElement(type, ethicalLevel, choices));
-//    return "No choices available for type '" + type + "' and ethical level '" + ethicalLevel + "'";
   }
 };
 
@@ -63,7 +62,7 @@ var Default = {} || Default;
 
 Default.choices = [];
 Default.choices[Util.RECIPROCITY] = [];
-Default.choices[Util.RECIPROCITY][Util.ETHICAL] = ["Ethical reciprocity", "Ethical1 reciprocity", "Ethical2 reciprocity", "Ethical3 reciprocity", "Ethical4 reciprocity"];
+Default.choices[Util.RECIPROCITY][Util.ETHICAL] = ["Ethical [reason='this is a reciprocity reason']reciprocity[/reason]", "Ethical1 reciprocity", "Ethical2 reciprocity", "Ethical3 reciprocity", "Ethical4 reciprocity"];
 Default.choices[Util.RECIPROCITY][Util.SOMEWHAT_ETHICAL] = ["Somewhat Ethical reciprocity", "Somewhat Ethical reciprocity1", "Somewhat Ethical reciprocity2", "Somewhat Ethical reciprocity3"];
 Default.choices[Util.RECIPROCITY][Util.SOMEWHAT_UNETHICAL] = ["Somewhat UnEthical reciprocity", "Somewhat UnEthical reciprocity1", "Somewhat UnEthical reciprocity2"];
 Default.choices[Util.RECIPROCITY][Util.UNETHICAL] = ["Unethical", "Unethical1"];
@@ -87,7 +86,7 @@ Default.choices[Util.LIKING][Util.SOMEWHAT_UNETHICAL] = ["Somewhat UnEthical Lik
 Default.choices[Util.LIKING][Util.UNETHICAL] = ["UnEthical Liking", "UnEthical Liking1"];
 
 Default.choices[Util.AUTHORITY] = []
-Default.choices[Util.AUTHORITY][Util.ETHICAL] = ["Ethical Authority", "Ethical Authority1", "Ethical Authority2", "Ethical Authority3", "Ethical Authority4"];
+Default.choices[Util.AUTHORITY][Util.ETHICAL] = ["Ethical Authority", "Ethical [reason='this is a Authority reason']Authority1[/reason] and [reason='this is also an Authority reason']Authority1 blah blah[/reason]", "Ethical Authority2", "Ethical Authority3", "Ethical Authority4"];
 Default.choices[Util.AUTHORITY][Util.SOMEWHAT_ETHICAL] = ["Somewhat Ethical Authority", "Somewhat Ethical Authority1", "Somewhat Ethical Authority2", "Somewhat Ethical Authority3"];
 Default.choices[Util.AUTHORITY][Util.SOMEWHAT_UNETHICAL] = ["Somewhat UnEthical Authority", "Somewhat UnEthical Authority1", "Somewhat UnEthical Authority2"];
 Default.choices[Util.AUTHORITY][Util.UNETHICAL] = ["UnEthical Authority", "UnEthical Authority1"];

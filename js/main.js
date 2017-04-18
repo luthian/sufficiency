@@ -125,7 +125,7 @@ Vue.component('testimonial-element', {
 
 /* Text persuasive element component */
 Vue.component('text-element', {
-  template: '<span>{{ msg }}</span>',
+  template: '<span v-html="msg"></span>',
   props: {
     index: {
       type: Number,
@@ -144,6 +144,10 @@ Vue.component('text-element', {
       default: function () {
         return Default.choices;
       }
+    },
+    open: {
+      type: Boolean,
+      default: false
     }
   },
   data: function() {
@@ -153,7 +157,16 @@ Vue.component('text-element', {
   },
   computed: {
     msg: function() {
-      return Util.chooseElement(this.itemIndex, this.type, this.level, this.choices);
+        var re = /(.*?)\[reason='(.+?)'](.+?)\[\/reason]/g
+        var chosenElement = Util.chooseElement(this.itemIndex, this.type, this.level, this.choices);
+        if (this.open) {
+          var newString = chosenElement.replace(re ,"$1<em class='reason' data-toggle='tooltip' data-placement='bottom' title='$2'>$3</em>");
+        }
+        else {
+          var newString = chosenElement.replace(re ,"$1$3");          
+        }
+        return newString;
+
       }
   }
 });
