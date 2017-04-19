@@ -76,7 +76,7 @@
                           <testimonial-element :index="n">
                           </testimonial-element>
                           <div class="testimonialContent">
-                            <text-element :open="controlsOpen" :index="theData.currentIndex" :type="theData.currentType" :level="theData.currentLevel"></text-element>
+                            <text-element :open="controlsOpen" :choices="testimonials.choices" :index="theData.currentIndex" :type="theData.currentType" :level="theData.currentLevel"></text-element>
                           </div>
                         </template>
                       </ethical-controls>
@@ -93,7 +93,7 @@
                           <template scope="{theData}">
                            <button class="btn btn-primary btn-lg">
                               I want this!<br>
-                                (<text-element :open="controlsOpen" :index="theData.currentIndex" :type="theData.currentType" :level="theData.currentLevel"></text-element>)
+                                (<text-element :choices="ctas.choices" :open="controlsOpen" :index="theData.currentIndex" :type="theData.currentType" :level="theData.currentLevel"></text-element>)
                             </button>
                           </template>
                         </ethical-controls>

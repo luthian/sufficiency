@@ -62,16 +62,16 @@ var Default = {} || Default;
 
 Default.choices = [];
 Default.choices[Util.RECIPROCITY] = [];
-Default.choices[Util.RECIPROCITY][Util.ETHICAL] = ["Ethical [reason='this is a reciprocity reason']reciprocity[/reason]", "Ethical1 reciprocity", "Ethical2 reciprocity", "Ethical3 reciprocity", "Ethical4 reciprocity"];
+Default.choices[Util.RECIPROCITY][Util.ETHICAL] = ["Ethical <reason='this is a reciprocity reason'>reciprocity</reason>", "Ethical1 reciprocity", "Ethical2 reciprocity", "Ethical3 reciprocity", "Ethical4 reciprocity"];
 Default.choices[Util.RECIPROCITY][Util.SOMEWHAT_ETHICAL] = ["Somewhat Ethical reciprocity", "Somewhat Ethical reciprocity1", "Somewhat Ethical reciprocity2", "Somewhat Ethical reciprocity3"];
 Default.choices[Util.RECIPROCITY][Util.SOMEWHAT_UNETHICAL] = ["Somewhat UnEthical reciprocity", "Somewhat UnEthical reciprocity1", "Somewhat UnEthical reciprocity2"];
 Default.choices[Util.RECIPROCITY][Util.UNETHICAL] = ["Unethical", "Unethical1"];
 
 Default.choices[Util.SOCIAL_PROOF] = []
-Default.choices[Util.SOCIAL_PROOF][Util.ETHICAL] = ["We surveyed all our customers (over 200 and growing!) and over 75% increased conversions by at least 10%.", "Ethical Social Proof1", "Ethical Social Proof2", "Ethical Social Proof3", "Ethical Social Proof4"];
-Default.choices[Util.SOCIAL_PROOF][Util.SOMEWHAT_ETHICAL] = ["We surveyed all our customers and most increased conversions by at least 10%.", "Somewhat Ethical Social Proof1", "Somewhat Ethical Social Proof2", "Somewhat Ethical Social Proof3"];
-Default.choices[Util.SOCIAL_PROOF][Util.SOMEWHAT_UNETHICAL] = ["We surveyed customers and many increased conversions by at least 10%.", "Somewhat UnEthical Social Proof1", "Somewhat UnEthical Social Proof2"];
-Default.choices[Util.SOCIAL_PROOF][Util.UNETHICAL] = ["You'll increase conversions by at least 50%!", "UnEthical Social Proof1"];
+Default.choices[Util.SOCIAL_PROOF][Util.ETHICAL] = ["We surveyed all our customers <reason='The minimum number of surveys is given'>(over 200 and growing!)</reason> and <reason='The minimum positive responses is given'>over 75%</reason> increased conversions by at <reason='The minimum increase is both reasonable and given'>least 10%</reason>.", "Ethical Social Proof1", "Ethical Social Proof2", "Ethical Social Proof3", "Ethical Social Proof4"];
+Default.choices[Util.SOCIAL_PROOF][Util.SOMEWHAT_ETHICAL] = ["We surveyed <reason='No minimum given but we're told it is all of their customers'>all our customers</reason> and <reason='No minimum given but it is above 50%'>most</reason> increased conversions by at <reason='The minimum increase is both reasonable and given'>least 10%</reason>.", "Somewhat Ethical Social Proof1", "Somewhat Ethical Social Proof2", "Somewhat Ethical Social Proof3"];
+Default.choices[Util.SOCIAL_PROOF][Util.SOMEWHAT_UNETHICAL] = ["We <reason='No number or criterion given at all'>surveyed customers</reason> and <reason='No number given but probably over 50%'>many</reason> increased conversions by at <reason='The minimum increase is both reasonable and given'>least 10%</reason>.", "Somewhat UnEthical Social Proof1", "Somewhat UnEthical Social Proof2"];
+Default.choices[Util.SOCIAL_PROOF][Util.UNETHICAL] = ["<reason='No reason given to back this up'>You'll</reason> increase conversions by at <reason='Number is suspect and no reason given'>least 50%</reason>!", "UnEthical Social Proof1"];
 
 Default.choices[Util.COMMITMENT] = []
 Default.choices[Util.COMMITMENT][Util.ETHICAL] = ["Ethical commitment", "Ethical Commitment1", "Ethical Commitment2", "Ethical Commitment3", "Ethical Commitment4"];
@@ -86,16 +86,16 @@ Default.choices[Util.LIKING][Util.SOMEWHAT_UNETHICAL] = ["Somewhat UnEthical Lik
 Default.choices[Util.LIKING][Util.UNETHICAL] = ["UnEthical Liking", "UnEthical Liking1"];
 
 Default.choices[Util.AUTHORITY] = []
-Default.choices[Util.AUTHORITY][Util.ETHICAL] = ["Ethical Authority", "Ethical [reason='this is a Authority reason']Authority1[/reason] and [reason='this is also an Authority reason']Authority1 blah blah[/reason]", "Ethical Authority2", "Ethical Authority3", "Ethical Authority4"];
+Default.choices[Util.AUTHORITY][Util.ETHICAL] = ["Ethical Authority", "Ethical <reason='this is a Authority reason'>Authority1</reason> and <reason='this is also an Authority reason'>Authority1 blah blah</reason>", "Ethical Authority2", "Ethical Authority3", "Ethical Authority4"];
 Default.choices[Util.AUTHORITY][Util.SOMEWHAT_ETHICAL] = ["Somewhat Ethical Authority", "Somewhat Ethical Authority1", "Somewhat Ethical Authority2", "Somewhat Ethical Authority3"];
 Default.choices[Util.AUTHORITY][Util.SOMEWHAT_UNETHICAL] = ["Somewhat UnEthical Authority", "Somewhat UnEthical Authority1", "Somewhat UnEthical Authority2"];
 Default.choices[Util.AUTHORITY][Util.UNETHICAL] = ["UnEthical Authority", "UnEthical Authority1"];
 
 Default.choices[Util.SCARCITY] = []
-Default.choices[Util.SCARCITY][Util.ETHICAL] = ["Buy this bundle of courses now and save 20% off the list price. This offer expires promptly on Friday at midnight.", "Ethical Scarcity1", "Ethical Scarcity2", "Ethical Scarcity3", "Ethical Scarcity4"];
-Default.choices[Util.SCARCITY][Util.SOMEWHAT_ETHICAL] = ["Buy this bundle of courses now and save 20%. This offer expires on Friday.", "Somewhat Ethical Scarcity1", "Somewhat Ethical Scarcity2", "Somewhat Ethical Scarcity3"];
-Default.choices[Util.SCARCITY][Util.SOMEWHAT_UNETHICAL] = ["Buy this bundle of courses now and save 20%. This offer expires soon.", "Somewhat UnEthical Scarcity1", "Somewhat UnEthical Scarcity2"];
-Default.choices[Util.SCARCITY][Util.UNETHICAL] = ["Buy this bundle of courses now and save 80% over what others are paying. Don't delay as this offer is time-limited.", "UnEthical Scarcity1"];
+Default.choices[Util.SCARCITY][Util.ETHICAL] = ["Buy this bundle of courses now and save <reason='The price to which the discount applies is specified'>20% off the list price</reason>. This offer expires <reason='The time the offer expires is given'>promptly on Friday at midnight</reason>.", "Ethical Scarcity1", "Ethical Scarcity2", "Ethical Scarcity3", "Ethical Scarcity4"];
+Default.choices[Util.SCARCITY][Util.SOMEWHAT_ETHICAL] = ["Buy this bundle of courses now and save <reason='The price to which the discount applies isn\'t specified'>20%</reason>. This offer expires on <reason='The time the offer expires isn\'t given but a day is given'>Friday</reason>.", "Somewhat Ethical Scarcity1", "Somewhat Ethical Scarcity2", "Somewhat Ethical Scarcity3"];
+Default.choices[Util.SCARCITY][Util.SOMEWHAT_UNETHICAL] = ["Buy this bundle of courses now and save <reason='The price to which the discount applies isn\'t specified'>20%</reason>. This offer expires <reason='The time or day the offer expires isn\'t given'>soon</reason>.", "Somewhat UnEthical Scarcity1", "Somewhat UnEthical Scarcity2"];
+Default.choices[Util.SCARCITY][Util.UNETHICAL] = ["Buy this bundle of courses now and save <reason='The price to which the discount applies isn\'t specified and the discount is suspiciously large'>80% over what others are paying</reason>. <reason='No reason is given for the urgency'>Don't delay</reason>!", "UnEthical Scarcity1"];
 
 Default.ethicalLevel = Util.ETHICAL;
 Default.persuasiveType = Util.AUTHORITY;
@@ -176,10 +176,10 @@ CTAs.choices[Util.AUTHORITY][Util.SOMEWHAT_UNETHICAL] = ["Somewhat UnEthical Aut
 CTAs.choices[Util.AUTHORITY][Util.UNETHICAL] = ["UnEthical Authority", "UnEthical Authority1"];
 
 CTAs.choices[Util.SCARCITY] = []
-CTAs.choices[Util.SCARCITY][Util.ETHICAL] = ["Buy this bundle of courses now and save 20% off the list price. This offer expires promptly on Friday at midnight.", "Ethical Scarcity1", "Ethical Scarcity2", "Ethical Scarcity3", "Ethical Scarcity4"];
-CTAs.choices[Util.SCARCITY][Util.SOMEWHAT_ETHICAL] = ["Buy this bundle of courses now and save 20%. This offer expires on Friday.", "Somewhat Ethical Scarcity1", "Somewhat Ethical Scarcity2", "Somewhat Ethical Scarcity3"];
-CTAs.choices[Util.SCARCITY][Util.SOMEWHAT_UNETHICAL] = ["Buy this bundle of courses now and save 20%. This offer expires soon.", "Somewhat UnEthical Scarcity1", "Somewhat UnEthical Scarcity2"];
-CTAs.choices[Util.SCARCITY][Util.UNETHICAL] = ["Buy this bundle of courses now and save 80% over what others are paying.", "UnEthical Scarcity1"];
+CTAs.choices[Util.SCARCITY][Util.ETHICAL] = ["Save <reason='The price to which the discount applies is specificd'>20% off the list price</reason> if you order <reason='The time the offer expires is given'>by Friday at midnight</reason>.", "Ethical Scarcity1", "Ethical Scarcity2", "Ethical Scarcity3", "Ethical Scarcity4"];
+CTAs.choices[Util.SCARCITY][Util.SOMEWHAT_ETHICAL] = ["Save <reason='The price to which the discount applies is specificd'>20%</reason> til <reason='The time the offer expires isn\'t given but the day is'>Friday</reason>.", "Somewhat Ethical Scarcity1", "Somewhat Ethical Scarcity2", "Somewhat Ethical Scarcity3"];
+CTAs.choices[Util.SCARCITY][Util.SOMEWHAT_UNETHICAL] = ["Save <reason='The price to which the discount applies is specificd'>20%</reason> if you order <reason='Neither the time nor the date that the offer expires is given'>soon</reason>!", "Somewhat UnEthical Scarcity1", "Somewhat UnEthical Scarcity2"];
+CTAs.choices[Util.SCARCITY][Util.UNETHICAL] = ["Save <reason='The price to which the discount applies isn\'t specified and the discount is suspiciously large'>80%</reason>. <reason='No reason is given for the urgency'>Don't delay</reason>!", "UnEthical Scarcity1"];
 
 CTAs.ethicalLevel = Util.SOMEWHAT_UNETHICAL;
 CTAs.persuasiveType = Util.SCARCITY;
