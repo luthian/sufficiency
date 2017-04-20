@@ -62,10 +62,10 @@ var Default = {} || Default;
 
 Default.choices = [];
 Default.choices[Util.RECIPROCITY] = [];
-Default.choices[Util.RECIPROCITY][Util.ETHICAL] = ["Ethical <reason='this is a reciprocity reason'>reciprocity</reason>", "Ethical1 reciprocity", "Ethical2 reciprocity", "Ethical3 reciprocity", "Ethical4 reciprocity"];
-Default.choices[Util.RECIPROCITY][Util.SOMEWHAT_ETHICAL] = ["Somewhat Ethical reciprocity", "Somewhat Ethical reciprocity1", "Somewhat Ethical reciprocity2", "Somewhat Ethical reciprocity3"];
-Default.choices[Util.RECIPROCITY][Util.SOMEWHAT_UNETHICAL] = ["Somewhat UnEthical reciprocity", "Somewhat UnEthical reciprocity1", "Somewhat UnEthical reciprocity2"];
-Default.choices[Util.RECIPROCITY][Util.UNETHICAL] = ["Unethical", "Unethical1"];
+Default.choices[Util.RECIPROCITY][Util.ETHICAL] = ["<reason='States this is their own opinion'>We think</reason> this is the best set of courses on the market today but don't take our word for it! Download <reason='Clearly states what they are giving you'>Parts 1 and 2</reason> of the first course and see for yourself.", "Ethical1 reciprocity", "Ethical2 reciprocity", "Ethical3 reciprocity", "Ethical4 reciprocity"];
+Default.choices[Util.RECIPROCITY][Util.SOMEWHAT_ETHICAL] = ["<reason='States this is their own opinion'>We think</reason> this is the best set of courses on the market today but don't take our word for it! Download <reason='Clearly states what they are giving you but it might not be enough to judge the courses.'>the intro</reason> to the first course and see for yourself.", "Somewhat Ethical reciprocity1", "Somewhat Ethical reciprocity2", "Somewhat Ethical reciprocity3"];
+Default.choices[Util.RECIPROCITY][Util.SOMEWHAT_UNETHICAL] = ["<reason='States this as fact with no justification'>This is the best</reason> set of courses on the market today but don't take our word for it! Download <reason='Doesn\'t state how representative those twenty minutes are'>twenty minutes</reason> of the first course and see for yourself.", "Somewhat UnEthical reciprocity1", "Somewhat UnEthical reciprocity2"];
+Default.choices[Util.RECIPROCITY][Util.UNETHICAL] = ["<reason='States this as fact with no justification'>This is the best</reason> set of courses on the market today but don't take our word for it! Download <reason='They aren't offering you any part of the real courses'>this mini version</reason> of the first course and see for yourself.", "Unethical1"];
 
 Default.choices[Util.SOCIAL_PROOF] = []
 Default.choices[Util.SOCIAL_PROOF][Util.ETHICAL] = ["We surveyed all our customers <reason='The minimum number of surveys is given'>(over 200 and growing!)</reason> and <reason='The minimum positive responses is given'>over 75%</reason> increased conversions by at <reason='The minimum increase is both reasonable and given'>least 10%</reason>.", "Ethical Social Proof1", "Ethical Social Proof2", "Ethical Social Proof3", "Ethical Social Proof4"];
