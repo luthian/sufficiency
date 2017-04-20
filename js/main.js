@@ -202,6 +202,9 @@ var app = new Vue({
     },
     setMasterEthicalLevel: function () {
       bus.$emit("set-ethical-level", this.ethicalLevel);
+    },
+    showModal: function(modalSelector) {
+      $(modalSelector).modal('show');
     }
   },
   computed: {
