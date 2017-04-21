@@ -128,16 +128,16 @@ Testimonials.choices[Util.LIKING][Util.SOMEWHAT_UNETHICAL] = ["<reason='Asserted
 Testimonials.choices[Util.LIKING][Util.UNETHICAL] = ["<reason='Asserted without proof'>We're</reason>the same; we both want to be better at marketing. These courses are<reason='Unlikely they are secrets>taught me the inners secrets</reason> of the best marketers and they <reason='Asserts without proof'>will</reason> do the same for you. Get these up now while you still can!"];
 
 Testimonials.choices[Util.AUTHORITY] = []
-Testimonials.choices[Util.AUTHORITY][Util.ETHICAL] = ["Ethical Authority", "Ethical Authority1", "Ethical Authority2", "Ethical Authority3", "Ethical Authority4"];
-Testimonials.choices[Util.AUTHORITY][Util.SOMEWHAT_ETHICAL] = ["Somewhat Ethical Authority", "Somewhat Ethical Authority1", "Somewhat Ethical Authority2", "Somewhat Ethical Authority3"];
-Testimonials.choices[Util.AUTHORITY][Util.SOMEWHAT_UNETHICAL] = ["Somewhat UnEthical Authority", "Somewhat UnEthical Authority1", "Somewhat UnEthical Authority2"];
-Testimonials.choices[Util.AUTHORITY][Util.UNETHICAL] = ["UnEthical Authority", "UnEthical Authority1"];
+Testimonials.choices[Util.AUTHORITY][Util.ETHICAL] = ["<reason='Clear that this is their opinion'>I think</reason> the folks who put these courses together are very good marketers so when they said this bundle will improve my marketing, <reason='Clearly using their own experience'>I believed</reason> them. I wasn't disappointed and <reason='Clear that this is their opinion'>I'm sure</reason> you won't be, either!"];
+Testimonials.choices[Util.AUTHORITY][Util.SOMEWHAT_ETHICAL] = ["<reason='Clear that this is their opinion'>I think</reason> the folks who put these courses together are some of the <reason='Asserted without proof but clearly an opinion'>best</reason> marketers out there so when they said this bundle will improve my marketing, <reason='Clearly using their own experience'>I believed</reason> them. I wasn't disappointed and <reason='Clear that this is their opinion'>I'm sure</reason> you won't be, either!"];
+Testimonials.choices[Util.AUTHORITY][Util.SOMEWHAT_UNETHICAL] = ["<reason='Asserted without proof'>The folks</reason> who put these courses together are some of the <reason='Asserted without proof but clearly an opinion'>best</reason> marketers out there so when they said this bundle will improve my marketing, <reason='Clearly using their own experience'>I believed</reason> them. I wasn't disappointed and <reason='Asserted without proof'>you</reason> won't be, either!"];
+Testimonials.choices[Util.AUTHORITY][Util.UNETHICAL] = ["<reason='Asserted without proof'>The folks</reason> who put these courses together the <reason='Asserted without proof'>best</reason> marketers out there so when they said this bundle will improve my marketing, <reason='Clearly using their own experience'>I believed</reason> them. I wasn't disappointed and <reason='Asserted without proof'>you</reason> won't be, either!"];
 
 Testimonials.choices[Util.SCARCITY] = []
-Testimonials.choices[Util.SCARCITY][Util.ETHICAL] = ["Buy this bundle of courses now and save 20% off the list price. This offer expires promptly on Friday at midnight.", "Ethical Scarcity1", "Ethical Scarcity2", "Ethical Scarcity3", "Ethical Scarcity4"];
-Testimonials.choices[Util.SCARCITY][Util.SOMEWHAT_ETHICAL] = ["Buy this bundle of courses now and save 20%. This offer expires on Friday.", "Somewhat Ethical Scarcity1", "Somewhat Ethical Scarcity2", "Somewhat Ethical Scarcity3"];
-Testimonials.choices[Util.SCARCITY][Util.SOMEWHAT_UNETHICAL] = ["Buy this bundle of courses now and save 20%. This offer expires soon.", "Somewhat UnEthical Scarcity1", "Somewhat UnEthical Scarcity2"];
-Testimonials.choices[Util.SCARCITY][Util.UNETHICAL] = ["Buy this bundle of courses now and save 80% over what others are paying. Don't delay as this offer is time-limited.", "UnEthical Scarcity1"];
+Testimonials.choices[Util.SCARCITY][Util.ETHICAL] = ["<reason='Clearly attributing the information to the site rather than stating it as a fact'>They said</reason> there are a limited number of these bundles available and once they're gone, they're gone! <reason='Clearly their own experience'>I've</reason> been very pleased with these courses and highly recommend them."];
+Testimonials.choices[Util.SCARCITY][Util.SOMEWHAT_ETHICAL] = ["<reason='Clearly attributing the information to the site rather than stating it as a fact'>They said</reason> there are a limited number of these bundles available and once they're gone, they're gone! <reason='Clearly their own experience'>I've</reason> been very pleased with these courses and you will <reason='Clearly states this as a possibility'>probably</reason> be, too."];
+Testimonials.choices[Util.SCARCITY][Util.SOMEWHAT_UNETHICAL] = ["<reason='Asserted without proof'>There</reason> are a limited number of these bundles available and once they're gone, they're gone! <reason='Asserted without proof but since it is a testimonial, it can be assumed to opinion'>Most everyone I know</reason> been very pleased with these courses and you will <reason='Asserted without proof'>be</reason>, too."];
+Testimonials.choices[Util.SCARCITY][Util.UNETHICAL] = ["<reason='Asserted without proof'>There</reason> are a limited number of these bundles available and once they're gone, they're gone! <reason='Asserted without proof but since it is a testimonial, it can be assumed to opinion'>Everyone here</reason> been very pleased with these courses and you <reason='Asserted without proof'>definitely will be</reason>, too."];
 
 Testimonials.ethicalLevel = Util.SOMEWHAT_ETHICAL;
 Testimonials.persuasiveType = Util.AUTHORITY;
@@ -153,8 +153,7 @@ CTAs.choices[Util.RECIPROCITY][Util.UNETHICAL] = ["Unethical", "Unethical1"];
 
 CTAs.choices[Util.SOCIAL_PROOF] = []
 CTAs.choices[Util.SOCIAL_PROOF][Util.ETHICAL] = ["<reason='Accurate and neutral'>21K Facebook Likes!</reason>"];
-CTAs.choices[Util.SOCIAL_PROOF][Util.SOMEWHAT_ETHICAL] = ["
-<reason='Not all of the likes necessarily came from customers'>Our customers liked us</reason> 21K times on Facebook!"];
+CTAs.choices[Util.SOCIAL_PROOF][Util.SOMEWHAT_ETHICAL] = ["<reason='Not all of the likes necessarily came from customers'>Our customers liked us</reason> 21K times on Facebook!"];
 CTAs.choices[Util.SOCIAL_PROOF][Util.SOMEWHAT_UNETHICAL] = ["21K Facebook Likes <reason='Yes they can. Likes don\'t mean the product is effective.>can\'t</reason> be wrong!"];
 CTAs.choices[Util.SOCIAL_PROOF][Util.UNETHICAL] = ["With 21K Facebook Likes, <reason='Likes don't mean anyone is buying the product, let alone competitors'>your competitors</reason> are buying these!"];
 
