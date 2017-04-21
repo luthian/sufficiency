@@ -145,36 +145,6 @@ Testimonials.persuasiveType = Util.AUTHORITY;
 var CTAs = {} || CTAs;
 
 CTAs.choices = [];
-CTAs.choices[Util.RECIPROCITY] = [];
-CTAs.choices[Util.RECIPROCITY][Util.ETHICAL] = ["Ethical reciprocity", "Ethical1 reciprocity", "Ethical2 reciprocity", "Ethical3 reciprocity", "Ethical4 reciprocity"];
-CTAs.choices[Util.RECIPROCITY][Util.SOMEWHAT_ETHICAL] = ["Somewhat Ethical reciprocity", "Somewhat Ethical reciprocity1", "Somewhat Ethical reciprocity2", "Somewhat Ethical reciprocity3"];
-CTAs.choices[Util.RECIPROCITY][Util.SOMEWHAT_UNETHICAL] = ["Somewhat UnEthical reciprocity", "Somewhat UnEthical reciprocity1", "Somewhat UnEthical reciprocity2"];
-CTAs.choices[Util.RECIPROCITY][Util.UNETHICAL] = ["Unethical", "Unethical1"];
-
-CTAs.choices[Util.SOCIAL_PROOF] = []
-CTAs.choices[Util.SOCIAL_PROOF][Util.ETHICAL] = ["<reason='Accurate and neutral'>21K Facebook Likes!</reason>"];
-CTAs.choices[Util.SOCIAL_PROOF][Util.SOMEWHAT_ETHICAL] = ["<reason='Not all of the likes necessarily came from customers'>Our customers liked us</reason> 21K times on Facebook!"];
-CTAs.choices[Util.SOCIAL_PROOF][Util.SOMEWHAT_UNETHICAL] = ["21K Facebook Likes <reason='Yes they can. Likes don\'t mean the product is effective.>can\'t</reason> be wrong!"];
-CTAs.choices[Util.SOCIAL_PROOF][Util.UNETHICAL] = ["With 21K Facebook Likes, <reason='Likes don't mean anyone is buying the product, let alone competitors'>your competitors</reason> are buying these!"];
-
-CTAs.choices[Util.COMMITMENT] = []
-CTAs.choices[Util.COMMITMENT][Util.ETHICAL] = ["Ethical commitment", "Ethical Commitment1", "Ethical Commitment2", "Ethical Commitment3", "Ethical Commitment4"];
-CTAs.choices[Util.COMMITMENT][Util.SOMEWHAT_ETHICAL] = ["Somewhat Ethical Commitment", "Somewhat Ethical Commitment1", "Somewhat Ethical Commitment2", "Somewhat Ethical Commitment3"];
-CTAs.choices[Util.COMMITMENT][Util.SOMEWHAT_UNETHICAL] = ["Somewhat UnEthical Commitment", "Somewhat UnEthical Commitment1", "Somewhat UnEthical Commitment2"];
-CTAs.choices[Util.COMMITMENT][Util.UNETHICAL] = ["UnEthical Commitment", "UnEthical Commitment1"];
-
-CTAs.choices[Util.LIKING] = []
-CTAs.choices[Util.LIKING][Util.ETHICAL] = ["Ethical Liking", "Ethical Liking1", "Ethical Liking2", "Ethical Liking3", "Ethical Liking4"];
-CTAs.choices[Util.LIKING][Util.SOMEWHAT_ETHICAL] = ["Somewhat Ethical Liking", "Somewhat Ethical Liking1", "Somewhat Ethical Liking2", "Somewhat Ethical Liking3"];
-CTAs.choices[Util.LIKING][Util.SOMEWHAT_UNETHICAL] = ["Somewhat UnEthical Liking", "Somewhat UnEthical Liking1", "Somewhat UnEthical Liking2"];
-CTAs.choices[Util.LIKING][Util.UNETHICAL] = ["UnEthical Liking", "UnEthical Liking1"];
-
-CTAs.choices[Util.AUTHORITY] = []
-CTAs.choices[Util.AUTHORITY][Util.ETHICAL] = ["Ethical Authority", "Ethical Authority1", "Ethical Authority2", "Ethical Authority3", "Ethical Authority4"];
-CTAs.choices[Util.AUTHORITY][Util.SOMEWHAT_ETHICAL] = ["Somewhat Ethical Authority", "Somewhat Ethical Authority1", "Somewhat Ethical Authority2", "Somewhat Ethical Authority3"];
-CTAs.choices[Util.AUTHORITY][Util.SOMEWHAT_UNETHICAL] = ["Somewhat UnEthical Authority", "Somewhat UnEthical Authority1", "Somewhat UnEthical Authority2"];
-CTAs.choices[Util.AUTHORITY][Util.UNETHICAL] = ["UnEthical Authority", "UnEthical Authority1"];
-
 CTAs.choices[Util.SCARCITY] = []
 CTAs.choices[Util.SCARCITY][Util.ETHICAL] = ["Save <reason='The price to which the discount applies is specificd'>20% off the list price</reason> if you order <reason='The time the offer expires is given'>by Friday at midnight</reason>."];
 CTAs.choices[Util.SCARCITY][Util.SOMEWHAT_ETHICAL] = ["Save <reason='The price to which the discount applies is specificd'>20%</reason> til <reason='The time the offer expires isn\'t given but the day is'>Friday</reason>.", "Somewhat Ethical Scarcity1"];
