@@ -96,12 +96,12 @@ Vue.component('ethical-controls', {
     // We have to re-add the tooltips each time the dom is rendered
     // because blocks controls by v-if aren't in the dom if their
     // governing condition is false
-    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="tooltip"]').tooltip({html: true});
   },
   beforeUpdate: function() {
     // Nuke all tooltips before we update. They will be added back
     // after the update.
-    $('[data-toggle="tooltip"]').tooltip('destroy')
+    $('[data-toggle="tooltip"]').tooltip('destroy');
   }
 });
 
