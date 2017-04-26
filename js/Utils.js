@@ -16,9 +16,9 @@ Util.SCARCITY = 5;
 
 Util.ethicalOptions = [
         { text: 'Ethical', value: Util.ETHICAL, definition: "All pertinent information is included allowing you to make an informed decision." },
-        { text: 'Somewhat ethical', value: Util.SOMEWHAT_ETHICAL, definition: "Some information is missing but it won't change your ability to make informed opinion. If it were included, it wouldn't your lower confidence in your decision." },
+        { text: 'Somewhat ethical', value: Util.SOMEWHAT_ETHICAL, definition: "Some information is missing but it won't change your ability to make an informed decision. If it were included, it wouldn't your lower confidence in your decision." },
         { text: 'Somewhat unethical', value: Util.SOMEWHAT_UNETHICAL, definition: "Some information is missing and it is relevant to, or would lower confidence in, your decision if it were known." },
-        { text: 'Unethical', value: Util.UNETHICAL, definition: "Outright deception or the missing information is highly relevant and changes, or destroys confidence in, in your decision." }
+        { text: 'Unethical', value: Util.UNETHICAL, definition: "Outright deception or information is missing that is highly relevant and changes, or destroys confidence in, your decision." }
         ];
 
 Util.persuasiveTypes = [
@@ -88,7 +88,7 @@ Default.choices[Util.LIKING][Util.UNETHICAL] = ["We're awesome marketers, <reaso
 Default.choices[Util.AUTHORITY] = []
 Default.choices[Util.AUTHORITY][Util.ETHICAL] = ["<reason='Clear that not everyone advocates this approach'>Some</reason> of the top marketers in the field recommend continuing to learn and try new ways to market. These courses <reason='Clear that the courses aren't the only way and might not apply to you'>could be</reason> one such way."];
 Default.choices[Util.AUTHORITY][Util.SOMEWHAT_ETHICAL] = ["<reason='Clear that not everyone advocates this approach but imply a lot do'>Many</reason> of the top marketers in the field recommend continuing to learn and try new ways to market. These courses <reason='Clear that the courses aren't the only way'>are</reason> one such way."];
-Default.choices[Util.AUTHORITY][Util.SOMEWHAT_UNETHICAL] = ["<reason='Unsubstantiated, and unlikely, claim that <em>all</em> marketers agree on this'>All</reason> of the top marketers in the field recommend continuing to learn and try new ways to market. These courses <reason='Unsubstantiated claim that this the best way'>the best</reason> way available."];
+Default.choices[Util.AUTHORITY][Util.SOMEWHAT_UNETHICAL] = ["<reason='Unsubstantiated, and unlikely, claim that <em>all</em> marketers agree on this'>All</reason> of the top marketers in the field recommend continuing to learn and try new ways to market. These courses are <reason='Unsubstantiated claim that this the best way'>the best</reason> way available."];
 Default.choices[Util.AUTHORITY][Util.UNETHICAL] = ["<reason='Unsubstantiated, and unlikely, claim that the <em>best</em> marketers agree on this'>The best</reason> marketers in the field recommend you get these courses as they are <reason='Unsubstantiated claim that this the best way'>the best</reason> way to level up as a marketer!"];
 
 Default.choices[Util.SCARCITY] = []

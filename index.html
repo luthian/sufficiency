@@ -187,7 +187,7 @@
                 <h4 class="modal-title" id="voteRecordedLabel">Thank you for voting!</h4>
               </div>
               <div class="modal-body">
-                <p>Thank you for taking the time to vote to change the ethical level of <em>{{ msg }}</em> from <em>{{ oldLevel }}</em> to <em>{{ newLevel }}</em>.</p>
+                <p>Thank you for taking the time to vote to change the ethical level of <em><span v-html="msg"></span></em> from <em>{{ oldLevel }}</em> to <em>{{ newLevel }}</em>.</p>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
