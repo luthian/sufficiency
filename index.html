@@ -219,10 +219,11 @@
           </slot>
           <div v-show="open && show[type]" class="controlsWrapper form-group form-group-sm">
             <div class="controlsInnerWrapper">
+              <div><span class="persuasiveType"><strong>Persuasion type:</strong> {{typeText}}</span>&nbsp;<i data-toggle="tooltip" data-placement="top" :data-original-title="typeDefinition" class="fa fa-2x fa-info-circle "></i></div>
               <transition name="fade">
                 <template v-if="!userDisagrees && editable">
                   <span>
-                    <label>Current ethical level&nbsp;<i data-toggle="tooltip" data-placement="top" :data-original-title="options[childData.currentLevel].definition" class="fa fa-2x fa-info-circle pull-right"></i>
+                    <label>Current ethical level&nbsp;<i data-toggle="tooltip" data-placement="top" :data-original-title="options[childData.currentLevel].definition" class="fa fa-2x fa-info-circle"></i>
       </label>
                     <select class="form-control" v-model="childData.currentLevel">
                       <option disabled>Select an ethical level</option>
@@ -232,7 +233,7 @@
                 </template>
                 <template v-else>
                 <div>
-                  Current level is <strong>{{ options[childData.currentLevel].text}}</strong><i data-toggle="tooltip" data-placement="top" :data-original-title="options[childData.currentLevel].definition" class="fa fa-2x fa-info-circle pull-right"></i>
+                  Current level is <strong>{{ options[childData.currentLevel].text}}</strong><i data-toggle="tooltip" data-placement="top" :data-original-title="options[childData.currentLevel].definition" class="fa fa-2x fa-info-circle"></i>
                 </div>
                 </template>
               </transition>
@@ -245,9 +246,9 @@
               <transition name="fade">
                 <template v-if="userDisagrees">
                   <span>
-                    <label>New ethical level&nbsp;<i data-toggle="tooltip" data-placement="top" :data-original-title="options[newEthicalLevel].definition" class="fa fa-2x fa-info-circle pull-right"></i></label>
+                    <label>New ethical level&nbsp;<i data-toggle="tooltip" data-placement="top" :data-original-title="options[newEthicalLevel].definition" class="fa fa-2x fa-info-circle"></i></label>
                     <select class="form-control" v-model="newEthicalLevel">
-                      <option disabled>Select an ethical level<i data-toggle="tooltip" data-placement="top" :data-original-title="options[newEthicalLevel].definition" class="fa fa-2x fa-info-circle pull-right"></i></option>
+                      <option disabled>Select an ethical level<i data-toggle="tooltip" data-placement="top" :data-original-title="options[newEthicalLevel].definition" class="fa fa-2x fa-info-circle"></i></option>
                       <option v-for="option in options" :value.number="option.value">{{option.text}}</option>
                     </select>
                     <button class="btn btn-primary btn-sm btn-block" :disabled="this.newEthicalLevel === this.childData.currentLevel" @click.prevent="updateEthicalLevel()">Adjust rating</button>

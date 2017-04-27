@@ -46,7 +46,9 @@ Vue.component('ethical-controls', {
         currentIndex: Util.getRandomNum(this.$props.choices[this.$props.type][this.$props.level].length - 1)
       },
       newEthicalLevel: this.level,
-      options: Util.ethicalOptions
+      options: Util.ethicalOptions,
+      typeText: Util.persuasiveTypes[this.$props.type].text,
+      typeDefinition: Util.persuasiveTypes[this.$props.type].definition
     };
   },
   computed: {
@@ -166,7 +168,6 @@ Vue.component('text-element', {
           var newString = chosenElement.replace(re ,"$1$3");          
         }
         return newString;
-
       }
   }
 });
