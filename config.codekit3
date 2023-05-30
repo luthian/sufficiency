@@ -9,6 +9,14 @@
 	],
 "creatorBuild": "32186",
 "files": {
+	"/.gitignore": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/.gitignore",
+		"oF": 0
+		},
 	"/_pgbackup/index_1490795216.html": {
 		"cB": 0,
 		"ft": 8192,
@@ -12143,6 +12151,16 @@
 		"oA": 0,
 		"oAP": "/css/custom.css.map",
 		"oF": 0
+		},
+	"/css/font-awesome.min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/css/font-awesome.min-min.css",
+		"oF": 0,
+		"oS": 3
 		},
 	"/css/plugins.css": {
 		"aP": 1,
